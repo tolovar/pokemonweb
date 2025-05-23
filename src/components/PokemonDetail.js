@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
 
+// funzione per mettere la prima lettera maiuscola
+function capitalize(str) {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {
   const [details, setDetails] = useState(null);
@@ -11,24 +17,31 @@ function PokemonDetail({ name }) {
       .then(setDetails);
   }, [name]);
 
-  if (!details) return <div>caricamento</div>;
-  if (details.error) return <div>pokémon non trovato</div>;
+  if (!details) return <div>Caricamento...</div>;
+  if (details.error) return <div>Pokémon non trovato</div>;
 
-  // qui mostro i dettagli del pokémon
+  // conversioni
+  const pesoKg = (details.weight / 10).toFixed(1); // da hectogrammi a kg
+  const altezzaM = (details.height / 10).toFixed(2); // da decimetri a metri
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={{ textTransform: 'capitalize' }}>{details.name}</h1>
+        <h1 style={{ textTransform: 'capitalize' }}>{capitalize(details.name)}</h1>
         <img src={details.sprites.front_default} alt={details.name} style={{ width: 120, height: 120 }} />
-        <p><strong>altezza:</strong> {details.height}</p>
-        <p><strong>peso:</strong> {details.weight}</p>
-        <p><strong>tipi:</strong> {details.types.map(t => t.type.name).join(', ')}</p>
-        <p><strong>abilità:</strong> {details.abilities.map(a => a.ability.name).join(', ')}</p>
+        <p><strong>Altezza:</strong> {altezzaM} m</p>
+        <p><strong>Peso:</strong> {pesoKg} kg</p>
         <p>
-          <strong>mosse principali:</strong> {details.moves.slice(0, 5).map(m => m.move.name).join(', ')}
+          <strong>Tipi:</strong> {details.types.map(t => capitalize(t.type.name)).join(', ')}
+        </p>
+        <p>
+          <strong>Abilità:</strong> {details.abilities.map(a => capitalize(a.ability.name)).join(', ')}
+        </p>
+        <p>
+          <strong>Mosse principali:</strong> {details.moves.slice(0, 5).map(m => capitalize(m.move.name)).join(', ')}
           {details.moves.length > 5 ? '...' : ''}
         </p>
-        <a href="/" style={{ color: '#61dafb' }}>torna alla lista</a>
+        <a href="/" style={{ color: '#61dafb' }}>Torna alla lista</a>
       </header>
     </div>
   );
