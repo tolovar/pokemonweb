@@ -5,12 +5,12 @@ import PokemonDetailWrapper from './components/PokemonDetailWrapper';
 // app principale con routing
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<PokemonList />} />
-        <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path="/" element={<PokemonList />} />
+          <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
+        </Routes>
+      </Router>
   );
 }
 

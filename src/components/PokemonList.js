@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PokemonGrid from './PokemonGrid';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 
 // creo il componente che mostra la lista dei pokémon
 function PokemonList() {
@@ -53,7 +53,7 @@ function PokemonList() {
   );
 
   return (
-    <div className="App">
+    <div className="">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>pokémon</h1>
