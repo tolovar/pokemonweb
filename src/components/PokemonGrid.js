@@ -1,7 +1,4 @@
-// funzione per formattare il nome del pokémon
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+import { capitalize } from '../helpers/text'; 
 
 // creo il componente che mostra la griglia dei pokémon
 function PokemonGrid({ pokemonList, pokemonDetails, onPokemonClick }) {

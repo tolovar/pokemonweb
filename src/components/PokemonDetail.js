@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react';
-
-// funzione per mettere la prima lettera maiuscola
-function capitalize(str) {
-  if (!str) return '';
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
+import { capitalize } from '../helpers/text'; 
 
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {
@@ -23,11 +18,12 @@ function PokemonDetail({ name }) {
   // conversioni
   const pesoKg = (details.weight / 10).toFixed(1); // da hectogrammi a kg
   const altezzaM = (details.height / 10).toFixed(2); // da decimetri a metri
+  const nome = capitalize(details.name);
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={{ textTransform: 'capitalize' }}>{capitalize(details.name)}</h1>
+        <h1 style={{ textTransform: 'capitalize' }}>{nome}</h1>
         <img src={details.sprites.front_default} alt={details.name} style={{ width: 120, height: 120 }} />
         <p><strong>Altezza:</strong> {altezzaM} m</p>
         <p><strong>Peso:</strong> {pesoKg} kg</p>
