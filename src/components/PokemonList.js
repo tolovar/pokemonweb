@@ -6,10 +6,11 @@ import '../App.css';
 // creo il componente che mostra la lista dei pokémon
 function PokemonList() {
   // imposto il numero di pokémon per pagina
-  const PAGE_SIZE = 18; 
+  const PAGE_SIZE = 18;
   const [pokemonList, setPokemonList] = useState([]);
   const [search, setSearch] = useState('');
-  const [nextUrl, setNextUrl] = useState(`https://pokeapi.co/api/v2/pokemon?limit=${PAGE_SIZE}&offset=0`);
+  // uso la prota 5000 per il server locale (è quella default di flask)
+  const [nextUrl, setNextUrl] = useState(`http://localhost:5000/api/pokemon?limit=${PAGE_SIZE}`);
   const [loading, setLoading] = useState(false);
   const [pokemonDetails, setPokemonDetails] = useState({});
   const [searchResult, setSearchResult] = useState(null);
@@ -26,10 +27,15 @@ function PokemonList() {
       setPokemonList(prev => {
         // aggiungo solo i pokémon che non sono già presenti
         const existingNames = new Set(prev.map(p => p.name));
+        console.log(data);
         const newPokemon = data.results.filter(p => !existingNames.has(p.name));
         return [...prev, ...newPokemon];
       });
       setNextUrl(data.next);
+
+      // TODO:
+      // capire quali dati voglio stampare su front end ed eliminare quelli che non mi servono
+      // OPPURE su back end manipolare i dati a monte così da ritornare quello che voglio
 
       // per ogni nuovo pokémon, scarico i dettagli solo se non li ho già
       data.results.forEach(async (pokemon) => {
