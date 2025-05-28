@@ -12,6 +12,10 @@ function Home() {
     navigate('/pokemon');
   };
 
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
   return (
     <div
       style={{
@@ -50,15 +54,29 @@ function Home() {
         boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
         transition: 'transform 0.2s',
         marginBottom: '20px',
-            '&:hover': {
-              transform: 'scale(1.05)'
-            },
           border: 'none',
           cursor: 'pointer',
           padding: 0
         }}
       >
         <img src={pokedexGif} alt="Pokédex" style={{ width: '260px' }} />
+      </button>
+      <button
+        onClick={handleLogin}
+        style={{
+          marginTop: '30px',
+          padding: '12px 32px',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+          background: '#3b4cca',
+          color: '#ffcb05',
+          border: 'none',
+          borderRadius: '8px',
+          cursor: 'pointer',
+          boxShadow: '0 2px 6px #0002'
+        }}
+      >
+        Login
       </button>
     </div>
   );

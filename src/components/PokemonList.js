@@ -33,10 +33,6 @@ function PokemonList() {
       });
       setNextUrl(data.next);
 
-      // TODO:
-      // capire quali dati voglio stampare su front end ed eliminare quelli che non mi servono
-      // OPPURE su back end manipolare i dati a monte così da ritornare quello che voglio
-
       // per ogni nuovo pokémon, scarico i dettagli solo se non li ho già
       data.results.forEach(async (pokemon) => {
         if (!pokemonDetails[pokemon.name]) {
