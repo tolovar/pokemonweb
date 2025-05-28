@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 function Login() {
-  const [email, setEmail] = useState('');
+  const { login } = useContext(AuthContext);
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showRecovery, setShowRecovery] = useState(false);
   const [recoveryEmail, setRecoveryEmail] = useState('');
@@ -12,6 +14,7 @@ function Login() {
     e.preventDefault();
     // qui va la logica di autenticazione
     // se il login ha successo:
+    login({ id: username, name: username });
     navigate('/pokemon-team');
   };
 
@@ -27,11 +30,11 @@ function Login() {
       {!showRecovery ? (
         <form onSubmit={handleLogin}>
           <input
-            type="email"
-            placeholder="Email"
-            value={email}
+            type="text"
+            placeholder="Nome utente"
+            value={username}
             required
-            onChange={e => setEmail(e.target.value)}
+            onChange={e => setUsername(e.target.value)}
             style={{ width: '100%', marginBottom: 12, padding: 8 }}
           />
           <input

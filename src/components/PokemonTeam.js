@@ -1,50 +1,71 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import { AuthContext } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const MAX_TEAM_SIZE = 6;
 
 function PokemonTeam() {
-  // quui devo inserire la logica che verifica se l'utente è loggato
-  // e mostrare il messaggio di errore se non lo è
+  const { user, isAuthenticated, logout } = useContext(AuthContext);
   const [team, setTeam] = useState([]);
-  const [pokemonName, setPokemonName] = useState('');
-  const [ability, setAbility] = useState('');
+  const navigate = useNavigate();
 
-  const handleAddPokemon = () => {
-    if (team.length >= MAX_TEAM_SIZE || !pokemonName || !ability) return;
-    setTeam([...team, { name: pokemonName, ability }]);
-    setPokemonName('');
-    setAbility('');
-  };
+  useEffect(() => {
+    async function fetchTeam() {
+      if (isAuthenticated) {
+        const res = await fetch(`/api/team?userId=${user.id}`);
+        const data = await res.json();
+        // recupero gli sprite dalla API per ogni pokemon
+        const teamWithSprites = await Promise.all(
+          data.map(async (p) => {
+            const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${p.name.toLowerCase()}`);
+            const pokeData = await pokeRes.json();
+            return {
+              ...p,
+              sprite: pokeData.sprites.front_default,
+            };
+          })
+        );
+        setTeam(teamWithSprites);
+      }
+    }
+    fetchTeam();
+  }, [isAuthenticated, user]);
+
+  if (!isAuthenticated) return <div>Devi essere loggato per vedere la tua squadra.</div>;
+
+  // divido il team in due file da tre elementi
+  const rows = [team.slice(0, 3), team.slice(3, 6)];
 
   return (
     <div style={{ maxWidth: 600, margin: '40px auto', padding: 24, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #0002' }}>
-      <h2>La tua squadra Pokémon</h2>
-      <div style={{ marginBottom: 16 }}>
-        <input
-          type="text"
-          placeholder="Nome Pokémon"
-          value={pokemonName}
-          onChange={e => setPokemonName(e.target.value)}
-          style={{ marginRight: 8, padding: 6 }}
-        />
-        <input
-          type="text"
-          placeholder="Abilità"
-          value={ability}
-          onChange={e => setAbility(e.target.value)}
-          style={{ marginRight: 8, padding: 6 }}
-        />
-        <button onClick={handleAddPokemon} disabled={team.length >= MAX_TEAM_SIZE}>
-          Aggiungi
+      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+        <span style={{ fontWeight: 'bold', fontSize: 20 }}>Benvenuto, {user?.name}</span>
+        <button onClick={logout} style={{ padding: '6px 16px', background: '#e74c3c', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
+          Logout
         </button>
-      </div>
-      <ul>
-        {team.map((p, idx) => (
-          <li key={idx} style={{ marginBottom: 8 }}>
-            <strong>{p.name}</strong> — Abilità: {p.ability}
-          </li>
+      </header>
+      <h2>La tua squadra</h2>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 16 }}>
+        {rows.map((row, rowIdx) => (
+          <div key={rowIdx} style={{ display: 'flex', justifyContent: 'center', gap: 32 }}>
+            {row.map((p, idx) => (
+              <div
+                key={idx}
+                style={{ textAlign: 'center', cursor: 'pointer' }}
+                onClick={() => navigate(`/pokemon/${p.name.toLowerCase()}`)}
+                title={p.name}
+              >
+                <img src={p.sprite} alt={p.name} style={{ width: 96, height: 96 }} />
+                <div style={{ marginTop: 8, fontWeight: 'bold', textTransform: 'capitalize' }}>{p.name}</div>
+              </div>
+            ))}
+            {/* placeholder invisibili che occupano i posti vuoti se una riga ha meno di tre elementi */}
+            {Array.from({ length: 3 - row.length }).map((_, i) => (
+              <div key={`empty-${i}`} style={{ width: 96, height: 96 }} />
+            ))}
+          </div>
         ))}
-      </ul>
+      </div>
       {team.length === MAX_TEAM_SIZE && (
         <div style={{ color: '#3b4cca', fontWeight: 'bold' }}>Hai raggiunto il massimo di 6 Pokémon!</div>
       )}
