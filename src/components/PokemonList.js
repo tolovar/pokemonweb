@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PokemonGrid from './PokemonGrid';
 import '../App.css';
@@ -9,7 +9,7 @@ function PokemonList() {
   const PAGE_SIZE = 18;
   const [pokemonList, setPokemonList] = useState([]);
   const [search, setSearch] = useState('');
-  // uso la prota 5000 per il server locale (è quella default di flask)
+  // uso la porta 5000 per il server locale (è quella default di flask)
   const [nextUrl, setNextUrl] = useState(`http://localhost:5000/api/pokemon?limit=${PAGE_SIZE}`);
   const [loading, setLoading] = useState(false);
   const [pokemonDetails, setPokemonDetails] = useState({});
@@ -107,6 +107,10 @@ function PokemonList() {
   // filtro i pokémon già caricati in base al testo inserito dall'utente
   const filteredPokemon = searchResult
     ? [searchResult]
+    : searchError
+      ? []
+      : search.trim() === ''
+      ? pokemonList
     : pokemonList.filter(p =>
         p.name.toLowerCase().includes(search.toLowerCase())
       );
@@ -140,7 +144,7 @@ function PokemonList() {
             disabled={loading}
             style={{ marginTop: 16, padding: '8px 16px', fontSize: '16px' }}
           >
-            {loading ? 'caricamento...' : 'carica altri'}
+            {loading ? 'caricamento' : 'carica altri'}
           </button>
         )}
       </header>

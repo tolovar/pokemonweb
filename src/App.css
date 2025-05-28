@@ -79,7 +79,7 @@ input {
   z-index: 2;
   padding: 12px 20px;
   border-radius: 30px;
-  border: 2px solid #e53935;
+  border: 2px solid #222;
   font-size: 18px;
   outline: none;
   background: #fff;
@@ -97,7 +97,8 @@ input:focus {
 .pokemon-grid {
   list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin-top: 0;
+  margin-right: 18px;  
   max-width: 900px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -106,6 +107,12 @@ input:focus {
   align-items: start;
   background: rgba(255,255,255,0.07);
   border-radius: 18px;
+  padding-top: 16px;
+  padding-right: 24px;
+  padding-left: 24px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  backdrop-filter: blur(10px);
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
   margin-bottom: 40px;
 }

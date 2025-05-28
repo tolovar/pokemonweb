@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { capitalize } from '../helpers/text'; 
 
 // creo il componente che mostra i dettagli di un pokémon
@@ -12,11 +12,11 @@ function PokemonDetail({ name }) {
       .then(setDetails);
   }, [name]);
 
-  if (!details) return <div>Caricamento...</div>;
+  if (!details) return <div>Caricamento</div>;
   if (details.error) return <div>Pokémon non trovato</div>;
 
   // conversioni
-  const pesoKg = (details.weight / 10).toFixed(1); // da hectogrammi a kg
+  const pesoKg = (details.weight / 10).toFixed(1); // da libre a chilogrammi
   const altezzaM = (details.height / 10).toFixed(2); // da decimetri a metri
   const nome = capitalize(details.name);
 
@@ -34,10 +34,10 @@ function PokemonDetail({ name }) {
           <strong>Abilità:</strong> {details.abilities.map(a => capitalize(a.ability.name)).join(', ')}
         </p>
         <p>
-          <strong>Mosse principali:</strong> {details.moves.slice(0, 5).map(m => capitalize(m.move.name)).join(', ')}
-          {details.moves.length > 5 ? '...' : ''}
+          <strong>Mosse principali:</strong> {details.moves.slice(0, 4).map(m => capitalize(m.move.name)).join(', ')}
+          {details.moves.length > 4 ? '...' : ''}
         </p>
-        <a href="/" style={{ color: '#61dafb' }}>Torna alla lista</a>
+        <a href="/pokemon" style={{ color: '#61dafb' }}>Torna alla lista</a>
       </header>
     </div>
   );

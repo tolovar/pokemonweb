@@ -1,4 +1,6 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, redirect } from 'react-router-dom';
+import Home from './components/Home';
 import PokemonList from './components/PokemonList';
 import PokemonDetailWrapper from './components/PokemonDetailWrapper';
 
@@ -7,7 +9,9 @@ function App() {
   return (
       <Router>
         <Routes>
-          <Route path="/" element={<PokemonList />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/pokemon" element={<PokemonList />} />
           <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
         </Routes>
       </Router>
