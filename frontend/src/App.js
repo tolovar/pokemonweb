@@ -5,6 +5,7 @@ import PokemonList from './components/PokemonList';
 import PokemonDetailWrapper from './components/PokemonDetailWrapper';
 import Login from './components/Login';
 import PokemonTeam from './components/PokemonTeam';
+import Register from './components/Register';
 import { AuthProvider } from './context/AuthContext';
 
 // app principale con routing
@@ -19,6 +20,7 @@ function App() {
           <Route path="/pokemon" element={<PokemonList />} />
           <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
           <Route path="/pokemon-team" element={<PokemonTeam />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
