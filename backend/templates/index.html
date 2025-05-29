@@ -1,0 +1,13 @@
+<ul>
+  {% for p in pokemons %}
+    <li>{{ p }}</li>
+  {% endfor %}
+</ul>
+<script>
+fetch('/api/pokemon')
+  .then(res => res.json())
+  .then(data => {
+    // aggiorna la pagina dinamicamente
+  });
+</script>
+
