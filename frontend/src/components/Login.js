@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 import "./Auth.css";
 
 function Login() {
@@ -20,9 +21,7 @@ function Login() {
       return;
     }
     try {
-      const res = await fetch(''
-        // qui devo mettere l'URL del backend
-        , {
+      const res = await fetch('http://localhost:5000/api/login', { // qui devo mettere l'url del backend
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -50,9 +49,7 @@ function Login() {
       return;
     }
     try {
-      const res = await fetch(''
-        // qui devo mettere l'URL del backend 
-        , {
+      const res = await fetch('http://localhost:5000/api/recover', { // qui devo mettere l'url del backend
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: recoveryEmail }),
@@ -139,3 +136,5 @@ function Login() {
     </div>
   );
 }
+
+export default Login;
