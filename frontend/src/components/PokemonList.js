@@ -4,7 +4,8 @@ import PokemonGrid from './PokemonGrid';
 import '../App.css';
 import useDebounce from '../hooks/useDebounce';
 
-// creo il componente che mostra la lista dei pokémon
+const PAGE_SIZE = 18;
+
 function PokemonList() {
   const [allPokemonNames, setAllPokemonNames] = useState([]);
   const [search, setSearch] = useState('');
@@ -13,6 +14,7 @@ function PokemonList() {
   const [pokemonDetails, setPokemonDetails] = useState({});
   const [loading, setLoading] = useState(false);
   const [debouncedSearch, setDebouncedSearch] = useState('');
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   // debounce handler
@@ -20,7 +22,7 @@ function PokemonList() {
     setDebouncedSearch(value);
   }, 800, { trailing: true });
 
-  // scarico tutti i pokémon una sola volta
+  // scairco tutti i nomi dei Pokémon una sola volta
   useEffect(() => {
     const fetchAllPokemonNames = async () => {
       try {
@@ -34,11 +36,13 @@ function PokemonList() {
     fetchAllPokemonNames();
   }, []);
 
-  // effettuo la ricerca solo tramite API e anche su corrispondenze parziali
+  // effettuo la ricerca solo tramite API e solo su corrispondenze parziali
   useEffect(() => {
     if (debouncedSearch.trim() === '') {
       setSearchResults([]);
       setSearchError('');
+      // resetto la pagina quando la barra di ricerca è vuota
+      setPage(1); 
       return;
     }
     setLoading(true);
@@ -53,9 +57,9 @@ function PokemonList() {
       setLoading(false);
       return;
     }
-    // Sscarico i dettagli dei Pokémon trovati
+    // scarico i dettagli dei Pokémon trovati 
     Promise.all(
-      // prendo solo 10 risultati per evitare troppi richieste
+      // prendo solo 10 risultati alla volta per evitare troppe richieste
       filteredNames.slice(0, 10).map(async name => {
         if (pokemonDetails[name]) return pokemonDetails[name];
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
@@ -77,10 +81,48 @@ function PokemonList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch, allPokemonNames]);
 
+  // quando la barra è vuota, carico la lista di pokémon
+  useEffect(() => {
+    if (search.trim() !== '' || allPokemonNames.length === 0) return;
+    setLoading(true);
+    const start = (page - 1) * PAGE_SIZE;
+    const end = start + PAGE_SIZE;
+    const pageNames = allPokemonNames.slice(start, end);
+
+    Promise.all(
+      pageNames.map(async name => {
+        if (pokemonDetails[name]) return pokemonDetails[name];
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        return await res.json();
+      })
+    ).then(detailsArr => {
+      const detailsObj = {};
+      detailsArr.forEach(d => {
+        if (d && d.name) detailsObj[d.name] = d;
+      });
+      setPokemonDetails(prev => ({ ...prev, ...detailsObj }));
+      setLoading(false);
+    }).catch(() => {
+      setSearchError('Errore nel caricamento della pagina');
+      setLoading(false);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [page, search, allPokemonNames]);
+
+  // pokémon da mostrare
+  const pokemonToShow = search.trim() === ''
+    ? allPokemonNames.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(name => ({
+        name,
+        url: `https://pokeapi.co/api/v2/pokemon/${name}`
+      }))
+    : searchResults.map(d => ({ name: d.name, url: `https://pokeapi.co/api/v2/pokemon/${d.name}` }));
+
+  // paginazione, per non appesantire la lista
+  const totalPages = Math.ceil(allPokemonNames.length / PAGE_SIZE);
+
   return (
     <div className="">
       <header className="App-header">
-        {/* qui mostro il form per filtrare i pokémon */}
         <form className="search-form" onSubmit={e => e.preventDefault()}>
           <input
             type="text"
@@ -96,13 +138,31 @@ function PokemonList() {
         {searchError && (
           <div style={{ color: 'yellow', marginBottom: 10 }}>{searchError}</div>
         )}
-        {/* qui uso il nuovo componente per mostrare la griglia dei pokémon */}
         <PokemonGrid
-          pokemonList={search.trim() === '' ? [] : searchResults.map(d => ({ name: d.name, url: `https://pokeapi.co/api/v2/pokemon/${d.name}` }))}
+          pokemonList={pokemonToShow}
           pokemonDetails={pokemonDetails}
           onPokemonClick={name => navigate(`/pokemon/${name}`)}
         />
         {loading && <div style={{ color: 'white', marginTop: 10 }}>Caricamento...</div>}
+        {search.trim() === '' && totalPages > 1 && (
+          <div style={{ marginTop: 16 }}>
+            <button
+              onClick={() => setPage(p => Math.max(1, p - 1))}
+              disabled={page === 1}
+              style={{ marginRight: 8 }}
+            >
+              &lt; Prev
+            </button>
+            Pagina {page} di {totalPages}
+            <button
+              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+              disabled={page === totalPages}
+              style={{ marginLeft: 8 }}
+            >
+              Next &gt;
+            </button>
+          </div>
+        )}
       </header>
     </div>
   );
