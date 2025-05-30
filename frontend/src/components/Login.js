@@ -21,7 +21,7 @@ function Login() {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5000/api/login', { // qui devo mettere l'url del backend
+      const res = await fetch('http://localhost:5000/api/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password }),
@@ -34,7 +34,8 @@ function Login() {
       const data = await res.json();
       // salvo il token JWT (es: localStorage)
       localStorage.setItem('token', data.token);
-      login({ id: username, name: username }); 
+      login({ id: username, name: username });
+      // reindirizzo l'utente alla pagina personale 
       navigate('/pokemon-team');
     } catch (err) {
       setError(err.message);
@@ -112,7 +113,7 @@ function Login() {
             <button type="button" onClick={() => setShowRecovery(true)} style={{ background: 'none', border: 'none', color: '#3b4cca', cursor: 'pointer', padding: 0 }}>
               Password dimenticata?
             </button>
-            <a href="/register" style={{ color: '#3b4cca', textDecoration: 'underline', fontSize: 14 }}>Registrati</a>
+            <Link to="/register" style={{ color: '#3b4cca', textDecoration: 'underline', fontSize: 14 }}>Registrati</Link>
           </div>
         </form>
       ) : (
