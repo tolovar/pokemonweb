@@ -115,7 +115,7 @@ function PokemonList() {
     <div className="">
       <header className="App-header">
         {/* qui mostro il form per filtrare i pokémon */}
-        <form onSubmit={e => e.preventDefault()}>
+        <form className="search-form" onSubmit={e => e.preventDefault()}>
           <input
             type="text"
             placeholder="cerca pokémon per nome"

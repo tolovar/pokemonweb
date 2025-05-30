@@ -5,6 +5,10 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 import datetime
 from flask_sqlalchemy import SQLAlchemy
 
+from backend.models.users import User
+from backend.models.admin import Admin
+from backend.models import db
+
 app = Flask(__name__)
 CORS(app)
 app.config['JWT_SECRET_KEY'] = 'super-secret-key'
@@ -13,7 +17,7 @@ app.config['JWT_SECRET_KEY'] = 'super-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ales:supersecretpassword@localhost:5432/pokemondb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 jwt = JWTManager(app)
-db = SQLAlchemy(app)
+db.init_app(app)
 
 # imposto il percorso per i template
 app.template_folder = 'templates'
@@ -100,7 +104,7 @@ def delete_user(user_id):
     users_db = [u for u in users_db if u['id'] != user_id]
     return jsonify({"msg": "User deleted"})
 
-# Login
+# login
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.json
@@ -111,6 +115,15 @@ def login():
     return jsonify(access_token=access_token)
 
 app.register_blueprint(users_bp)
+
+# registrazione utente
+@app.route('/api/register', methods=['POST'])
+def register():
+    data = request.json
+    user = User(email=data['email'], password=data['password'], is_admin=data.get('is_admin', False))
+    db.session.add(user)
+    db.session.commit()
+    return jsonify({"message": "Utente registrato"}), 201
 
 # blueprint per la gestione admin
 admin_bp = Blueprint('admin', __name__, url_prefix='/api/admin')
@@ -146,3 +159,4 @@ def internal_error(error):
 
 if __name__ == '__main__':
     app.run(debug=True)
+

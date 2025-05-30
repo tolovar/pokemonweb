@@ -4,6 +4,7 @@ import Home from './components/Home';
 import PokemonList from './components/PokemonList';
 import PokemonDetailWrapper from './components/PokemonDetailWrapper';
 import Login from './components/Login';
+import Register from './components/Register';
 import PokemonTeam from './components/PokemonTeam';
 import { AuthProvider } from './context/AuthContext';
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/pokemon" element={<PokemonList />} />
           <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
           <Route path="/pokemon-team" element={<PokemonTeam />} />

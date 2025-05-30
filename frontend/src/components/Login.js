@@ -1,77 +1,59 @@
-import React, { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../src/context/AuthContext';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import "./Auth.css";
 
-function Login() {
-  const { login } = useContext(AuthContext);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [showRecovery, setShowRecovery] = useState(false);
-  const [recoveryEmail, setRecoveryEmail] = useState('');
+export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    // qui va la logica di autenticazione
-    // se il login ha successo:
-    login({ id: username, name: username });
-    navigate('/pokemon-team');
+  const handleLogin = async (email, password) => {
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      if (!res.ok) throw new Error("Credenziali non valide");
+      // puoi salvare il token qui se necessario
+      // reindirizzo l'utente alla home dopo il login
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
-  const handleRecovery = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // qui devo mettere la logica di recupero password
-    
+    setError("");
+    handleLogin(email, password);
   };
 
   return (
-    <div style={{ maxWidth: 350, margin: '60px auto', padding: 24, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #0002' }}>
-      <h2 style={{ textAlign: 'center' }}>Login</h2>
-      {!showRecovery ? (
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            placeholder="Nome utente"
-            value={username}
-            required
-            onChange={e => setUsername(e.target.value)}
-            style={{ width: '100%', marginBottom: 12, padding: 8 }}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            required
-            onChange={e => setPassword(e.target.value)}
-            style={{ width: '100%', marginBottom: 12, padding: 8 }}
-          />
-          <button type="submit" style={{ width: '100%', padding: 10, marginBottom: 8 }}>Accedi</button>
-          <div style={{ textAlign: 'right' }}>
-            <button type="button" onClick={() => setShowRecovery(true)} style={{ background: 'none', border: 'none', color: '#3b4cca', cursor: 'pointer' }}>
-              Password dimenticata?
-            </button>
-          </div>
-        </form>
-      ) : (
-        <form onSubmit={handleRecovery}>
-          <input
-            type="email"
-            placeholder="Inserisci la tua email"
-            value={recoveryEmail}
-            required
-            onChange={e => setRecoveryEmail(e.target.value)}
-            style={{ width: '100%', marginBottom: 12, padding: 8 }}
-          />
-          <button type="submit" style={{ width: '100%', padding: 10, marginBottom: 8 }}>Recupera password</button>
-          <div style={{ textAlign: 'right' }}>
-            <button type="button" onClick={() => setShowRecovery(false)} style={{ background: 'none', border: 'none', color: '#3b4cca', cursor: 'pointer' }}>
-              Torna al login
-            </button>
-          </div>
-        </form>
-      )}
+    <div className="auth-container">
+      <h2>Accedi</h2>
+      <form className="auth-form" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          required
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          required
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="submit">Login</button>
+        {error && <div className="auth-error">{error}</div>}
+      </form>
+      <div className="auth-link">
+        Non hai un account? <Link to="/register">Registrati</Link>
+      </div>
     </div>
   );
 }
-
-export default Login;

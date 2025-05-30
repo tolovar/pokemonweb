@@ -44,8 +44,8 @@ body {
   padding-top: 30px;
 }
 
-/* form di ricerca con sfondo poké ball */
-form {
+/* form di ricerca */
+.search-form {
   position: relative;
   display: flex;
   justify-content: center;
@@ -55,8 +55,8 @@ form {
   height: 70px;
 }
 
-/* pokéballcome sfondo del form */
-form::before {
+/* pokéball come sfondo SOLO per search-form */
+.search-form::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -64,9 +64,7 @@ form::before {
   transform: translate(-50%, -50%);
   width: 70px;
   height: 70px;
-  
-  background:
-    linear-gradient(to bottom, #e53935 0 49%, #fff 51% 100%);
+  background: linear-gradient(to bottom, #e53935 0 49%, #fff 51% 100%);
   border: 3px solid #222;
   border-radius: 50%;
   z-index: 0;
