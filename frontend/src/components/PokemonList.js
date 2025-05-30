@@ -2,114 +2,80 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PokemonGrid from './PokemonGrid';
 import '../App.css';
+import useDebounce from '../hooks/useDebounce';
 
 // creo il componente che mostra la lista dei pokémon
 function PokemonList() {
-  // imposto il numero di pokémon per pagina
-  const PAGE_SIZE = 18;
-  const [pokemonList, setPokemonList] = useState([]);
+  const [allPokemonNames, setAllPokemonNames] = useState([]);
   const [search, setSearch] = useState('');
-  // uso la porta 5000 per il server locale (è quella default di flask)
-  const [nextUrl, setNextUrl] = useState(`http://localhost:5000/api/pokemon?limit=${PAGE_SIZE}`);
-  const [loading, setLoading] = useState(false);
-  const [pokemonDetails, setPokemonDetails] = useState({});
-  const [searchResult, setSearchResult] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
   const [searchError, setSearchError] = useState('');
+  const [pokemonDetails, setPokemonDetails] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [debouncedSearch, setDebouncedSearch] = useState('');
   const navigate = useNavigate();
 
-  // quando chiamo questa funzione, scarico una pagina di pokémon e i loro dettagli per mostrare lo sprite
-  const fetchPokemonPage = async () => {
-    if (!nextUrl) return;
-    setLoading(true);
-    try {
-      const response = await fetch(nextUrl);
-      const data = await response.json();
-      setPokemonList(prev => {
-        // aggiungo solo i pokémon che non sono già presenti
-        const existingNames = new Set(prev.map(p => p.name));
-        console.log(data);
-        const newPokemon = data.results.filter(p => !existingNames.has(p.name));
-        return [...prev, ...newPokemon];
-      });
-      setNextUrl(data.next);
+  // debounce handler
+  const debouncedSetSearch = useDebounce((value) => {
+    setDebouncedSearch(value);
+  }, 800, { trailing: true });
 
-      // per ogni nuovo pokémon, scarico i dettagli solo se non li ho già
-      data.results.forEach(async (pokemon) => {
-        if (!pokemonDetails[pokemon.name]) {
-          const res = await fetch(pokemon.url);
-          const details = await res.json();
-          setPokemonDetails(prev => ({
-            ...prev,
-            [pokemon.name]: details
-          }));
-        }
-      });
-    } catch (err) {
-      console.error(err);
-    }
-    setLoading(false);
-  };
-
-  // quando il componente viene montato, scarico la prima pagina di pokémon
+  // scarico tutti i pokémon una sola volta
   useEffect(() => {
-    fetchPokemonPage();
-  }, []);
-
-  // nuova funzione per la ricerca 
-  // ora dovrebbe cercare tra i pokémon già caricati 
-  // e se non trova nulla lì, cercare tramite API
-  useEffect(() => {
-    if (search.trim() === '') {
-      setSearchResult(null);
-      setSearchError('');
-      return;
-    }
-    // cerca tra quelli già caricati
-    const found = pokemonList.find(p => p.name.toLowerCase() === search.toLowerCase());
-    if (found) {
-      setSearchResult(null);
-      setSearchError('');
-      return;
-    }
-    // cerca tramite API
-    const fetchSearchedPokemon = async () => {
-      setSearchError('');
+    const fetchAllPokemonNames = async () => {
       try {
-        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${search.toLowerCase()}`);
-        if (!res.ok) {
-          setSearchResult(null);
-          setSearchError('Pokémon non trovato');
-          return;
-        }
-        const details = await res.json();
-        setPokemonDetails(prev => ({
-          ...prev,
-          [details.name]: details
-        }));
-        // imposta il risultato solo dopo aver scaricato i dettagli
-        setSearchResult({
-          name: details.name,
-          url: `https://pokeapi.co/api/v2/pokemon/${details.name}`
-        });
+        const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1300');
+        const data = await res.json();
+        setAllPokemonNames(data.results.map(p => p.name));
       } catch (err) {
-        setSearchResult(null);
-        setSearchError('Pokémon non trovato');
+        setSearchError('Errore nel caricamento dei nomi Pokémon');
       }
     };
-    fetchSearchedPokemon();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
+    fetchAllPokemonNames();
+  }, []);
 
-  // filtro i pokémon già caricati in base al testo inserito dall'utente
-  const filteredPokemon = searchResult
-    ? [searchResult]
-    : searchError
-      ? []
-      : search.trim() === ''
-      ? pokemonList
-    : pokemonList.filter(p =>
-        p.name.toLowerCase().includes(search.toLowerCase())
-      );
+  // effettuo la ricerca solo tramite API e anche su corrispondenze parziali
+  useEffect(() => {
+    if (debouncedSearch.trim() === '') {
+      setSearchResults([]);
+      setSearchError('');
+      return;
+    }
+    setLoading(true);
+    setSearchError('');
+    // filtro i nomi che contengono la stringa inserita
+    const filteredNames = allPokemonNames.filter(name =>
+      name.toLowerCase().includes(debouncedSearch.toLowerCase())
+    );
+    if (filteredNames.length === 0) {
+      setSearchResults([]);
+      setSearchError('Nessun Pokémon trovato');
+      setLoading(false);
+      return;
+    }
+    // Sscarico i dettagli dei Pokémon trovati
+    Promise.all(
+      // prendo solo 10 risultati per evitare troppi richieste
+      filteredNames.slice(0, 10).map(async name => {
+        if (pokemonDetails[name]) return pokemonDetails[name];
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
+        return await res.json();
+      })
+    ).then(detailsArr => {
+      // aggiorno cache dettagli
+      const detailsObj = {};
+      detailsArr.forEach(d => {
+        if (d && d.name) detailsObj[d.name] = d;
+      });
+      setPokemonDetails(prev => ({ ...prev, ...detailsObj }));
+      setSearchResults(detailsArr.filter(d => d && d.name));
+      setLoading(false);
+    }).catch(() => {
+      setSearchError('Errore nella ricerca');
+      setLoading(false);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedSearch, allPokemonNames]);
 
   return (
     <div className="">
@@ -120,7 +86,10 @@ function PokemonList() {
             type="text"
             placeholder="cerca pokémon per nome"
             value={search}
-            onChange={e => setSearch(e.target.value)}
+            onChange={e => {
+              setSearch(e.target.value);
+              debouncedSetSearch(e.target.value);
+            }}
             style={{ padding: '8px', fontSize: '16px' }}
           />
         </form>
@@ -129,20 +98,11 @@ function PokemonList() {
         )}
         {/* qui uso il nuovo componente per mostrare la griglia dei pokémon */}
         <PokemonGrid
-          pokemonList={filteredPokemon}
+          pokemonList={search.trim() === '' ? [] : searchResults.map(d => ({ name: d.name, url: `https://pokeapi.co/api/v2/pokemon/${d.name}` }))}
           pokemonDetails={pokemonDetails}
           onPokemonClick={name => navigate(`/pokemon/${name}`)}
         />
-        {/* qui mostro il bottone per caricare altri pokémon */}
-        {nextUrl && (
-          <button
-            onClick={fetchPokemonPage}
-            disabled={loading}
-            style={{ marginTop: 16, padding: '8px 16px', fontSize: '16px' }}
-          >
-            {loading ? 'caricamento' : 'carica altri'}
-          </button>
-        )}
+        {loading && <div style={{ color: 'white', marginTop: 10 }}>Caricamento...</div>}
       </header>
     </div>
   );
