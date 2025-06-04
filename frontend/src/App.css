@@ -167,6 +167,13 @@ input:focus {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+/* bordo di base trasparente */
+.pokemon-card {
+  border: 3px solid transparent;
+  border-radius: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
 /* bordo colorato solo al passaggio del mouse */
 .pokemon-grid-item[data-type="grass"]:hover { border-color: #4caf50; }
 .pokemon-grid-item[data-type="fire"]:hover { border-color: #f44336; }
@@ -195,17 +202,4 @@ input:focus {
   display: inline-block;
   border-radius: 50%;
   box-shadow: 0 1px 4px rgba(0,0,0,0.10);
-}
-
-/* bordo trasparente di base */
-.pokemon-card {
-  border: 3px solid transparent;
-  border-radius: 16px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-/* bordo colorato al passaggio del mouse */
-.pokemon-card:hover {
-  border-color: #3b4cca;
-  box-shadow: 0 0 12px #3b4cca55;
 }

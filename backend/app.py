@@ -7,6 +7,7 @@ from backend.models.users import User
 from backend.models.admin import Admin
 from backend.models import db
 from backend.models.pokemon_team import PokemonTeam  
+from flask_mail import Mail, Message
 
 app = Flask(__name__)
 # fLASK-CORS aggiunge automaticamente gli header CORS
@@ -15,9 +16,16 @@ CORS(app, supports_credentials=True)
 app.config['JWT_SECRET_KEY'] = 'super-secret-key'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:supersecretpassword@localhost:5432/pokemondb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# configura Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = 'mail@mail.com'
+app.config['MAIL_PASSWORD'] = 'password'
 jwt = JWTManager(app)
 db.init_app(app)
 app.template_folder = 'templates'
+mail = Mail(app)
 
 # blueprint per gli utenti
 users_bp = Blueprint('users', __name__, url_prefix='/api/users')
@@ -164,6 +172,50 @@ def get_team():
     team = PokemonTeam.query.filter_by(user_id=user_id).all()
     return jsonify([p.to_dict() for p in team])
 
+# endpoint per aggiungere un pokémon alla squadra dell'utente
+@app.route('/api/team', methods=['POST'])
+@jwt_required()
+def add_pokemon_to_team():
+    user_id = get_jwt_identity()
+    data = request.get_json()
+    name = data.get('name')
+    if not name:
+        return jsonify({"success": False, "message": "Nome pokémon mancante"}), 400
+    # controllo che il pokémon non sia già nella squadra
+    existing = PokemonTeam.query.filter_by(user_id=user_id, name=name).first()
+    if existing:
+        return jsonify({"success": False, "message": "Pokémon già presente in squadra"}), 409
+    # aggiungo il pokémon
+    new_pokemon = PokemonTeam(user_id=user_id, name=name)
+    db.session.add(new_pokemon)
+    db.session.commit()
+    return jsonify({"success": True, "message": "Pokémon aggiunto", "pokemon": {"name": name}}), 201
+
+# recupero password
+@app.route('/api/recover', methods=['POST'])
+def recover_password():
+    data = request.get_json()
+    email = data.get('email')
+    user = User.query.filter_by(email=email).first()
+    if not user:
+        return jsonify({"message": "Email non trovata"}), 404
+
+    # genero un token di reset e invio il link
+    msg = Message("Recupero password PokémonWeb",
+                  sender="tuamail@gmail.com",
+                  recipients=[email])
+    msg.body = f"Ciao! {user.username},\n\nPer reimpostare la tua password visita il link: https://PokemonWeb/reset-password?email={email}"
+    mail.send(msg)
+    return jsonify({"message": "Email di recupero inviata"}), 200
+
+# setup del database e avvio dell'applicazione
+if __name__ == '__main__':
+    with app.app_context():
+        # creo tutte le tabelle definite nei modelli
+        db.create_all()  
+        app.run(debug=True)
+
+
 # gestisco gli errori
 
 @app.errorhandler(400)
@@ -185,10 +237,3 @@ def conflict(error):
 @app.errorhandler(500)
 def internal_error(error):
     return jsonify({"error": "Internal server error"}), 500
-
-if __name__ == '__main__':
-    with app.app_context():
-        # creo tutte le tabelle definite nei modelli
-        db.create_all()  
-        app.run(debug=True)
-
