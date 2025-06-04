@@ -1,22 +1,29 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import PokemonCard from './PokemonCard';
+import { apiFetch } from '../services/api';
 
 const MAX_TEAM_SIZE = 6;
 
 function PokemonTeam() {
   const { user, isAuthenticated, logout } = useContext(AuthContext);
   const [team, setTeam] = useState([]);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [allPokemon, setAllPokemon] = useState([]);
+  const [search, setSearch] = useState('');
+
   const navigate = useNavigate();
 
+  // recupero la squadra dell'utente loggato usando il token
   useEffect(() => {
     async function fetchTeam() {
       if (isAuthenticated) {
-        const res = await fetch(`/api/team?userId=${user.id}`);
-        const data = await res.json();
-        // recupero gli sprite dalla API per ogni pokemon
+        const res = await apiFetch('/api/team');
+        const data = await res.json ? await res.json() : res;
         const teamWithSprites = await Promise.all(
           data.map(async (p) => {
+            // recupero lo sprite dalla pokeapi
             const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${p.name.toLowerCase()}`);
             const pokeData = await pokeRes.json();
             return {
@@ -26,48 +33,133 @@ function PokemonTeam() {
           })
         );
         setTeam(teamWithSprites);
+      } else {
+        // se l'utente non è loggato, lo reindirizzo al login
+        navigate('/login');
       }
     }
     fetchTeam();
-  }, [isAuthenticated, user]);
+  }, [isAuthenticated, user, navigate]);
 
-  if (!isAuthenticated) return <div>Devi essere loggato per vedere la tua squadra.</div>;
+  // recupero la lista di tutti i pokemon solo quando serve
+  useEffect(() => {
+    async function fetchAllPokemon() {
+      const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1025');
+      const data = await res.json();
+      // salvo solo nome e id, che estraggo dall'url
+      setAllPokemon(data.results.map(p => ({
+        name: p.name,
+        id: p.url.split('/').filter(Boolean).pop()
+      })));
+    }
+    if (showAddModal && allPokemon.length === 0) fetchAllPokemon();
+  }, [showAddModal, allPokemon.length]);
 
-  // divido il team in due file da tre elementi
-  const rows = [team.slice(0, 3), team.slice(3, 6)];
+  // filtro i pokemon in base alla ricerca
+  const filteredPokemon = allPokemon
+    .filter(p => p.name.includes(search))
+    .slice(0, 60); // limito a 60 risultati per performance
+
+  // rimuovo un pokémon dalla squadra
+  const handleRemove = async (pokemonId) => {
+    await apiFetch(`/api/team/${pokemonId}`, { method: 'DELETE' });
+    setTeam(team.filter(p => p.id !== pokemonId));
+  };
+
+  // apro la modale per aggiungere un pokémon
+  const handleAddClick = () => setShowAddModal(true);
+
+  // aggiungo un pokémon selezionato dalla modale
+  const handleAddPokemon = async (pokemonName) => {
+    await apiFetch('/api/team', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: pokemonName })
+    });
+    setShowAddModal(false);
+    // aggiorno la squadra dopo l'aggiunta
+    // richiamo fetchTeam tramite un nuovo useEffect su showAddModal
+    setTimeout(() => {
+      // richiamo fetchTeam dopo la chiusura della modale
+      window.location.reload();
+    }, 400);
+  };
 
   return (
-    <div style={{ maxWidth: 600, margin: '40px auto', padding: 24, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #0002' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
-        <span style={{ fontWeight: 'bold', fontSize: 20 }}>Benvenuto, {user?.name}</span>
-        <button onClick={logout} style={{ padding: '6px 16px', background: '#e74c3c', color: '#fff', border: 'none', borderRadius: 6, cursor: 'pointer' }}>
-          Logout
-        </button>
-      </header>
-      <h2>La tua squadra</h2>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 24, marginBottom: 16 }}>
-        {rows.map((row, rowIdx) => (
-          <div key={rowIdx} style={{ display: 'flex', justifyContent: 'center', gap: 32 }}>
-            {row.map((p, idx) => (
-              <div
-                key={idx}
-                style={{ textAlign: 'center', cursor: 'pointer' }}
-                onClick={() => navigate(`/pokemon/${p.name.toLowerCase()}`)}
-                title={p.name}
-              >
-                <img src={p.sprite} alt={p.name} style={{ width: 96, height: 96 }} />
-                <div style={{ marginTop: 8, fontWeight: 'bold', textTransform: 'capitalize' }}>{p.name}</div>
-              </div>
-            ))}
-            {/* placeholder invisibili che occupano i posti vuoti se una riga ha meno di tre elementi */}
-            {Array.from({ length: 3 - row.length }).map((_, i) => (
-              <div key={`empty-${i}`} style={{ width: 96, height: 96 }} />
-            ))}
-          </div>
+    <div style={{ position: 'relative', minHeight: 400 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {team.map((p) => (
+          <PokemonCard
+            key={p.id}
+            pokemon={p}
+            onRemove={() => handleRemove(p.id)}
+          />
         ))}
       </div>
-      {team.length === MAX_TEAM_SIZE && (
-        <div style={{ color: '#3b4cca', fontWeight: 'bold' }}>Hai raggiunto il massimo di 6 Pokémon!</div>
+      {/* bottone flottante per aggiungere pokemon */}
+      {team.length < MAX_TEAM_SIZE && (
+        <button
+          onClick={handleAddClick}
+          title="aggiungi un pokemon"
+          style={{
+            position: 'fixed',
+            bottom: 32,
+            right: 32,
+            width: 60,
+            height: 60,
+            borderRadius: '50%',
+            background: 'linear-gradient(135deg, #ffde00 60%, #3b4cca 100%)',
+            color: '#3b4cca',
+            fontSize: 36,
+            border: 'none',
+            boxShadow: '0 4px 16px #3b4cca55',
+            cursor: 'pointer',
+            zIndex: 1000
+          }}
+        >+</button>
+      )}
+      {/* modale per aggiungere pokemon */}
+      {showAddModal && (
+        <div style={{
+          position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+          background: 'rgba(0,0,0,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 2000
+        }}>
+          <div style={{
+            background: '#fff', borderRadius: 16, padding: 24, minWidth: 320, maxHeight: 500, overflowY: 'auto'
+          }}>
+            <h3 style={{ color: '#3b4cca', marginBottom: 16 }}>scegli un pokémon</h3>
+            <input
+              type="text"
+              placeholder="cerca pokémon"
+              value={search}
+              onChange={e => setSearch(e.target.value.toLowerCase())}
+              style={{
+                width: '100%',
+                padding: 8,
+                marginBottom: 16,
+                borderRadius: 8,
+                border: '1px solid #3b4cca',
+                fontSize: 16
+              }}
+            />
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, maxHeight: 350, overflowY: 'auto' }}>
+              {filteredPokemon.length === 0 && <div style={{ color: '#e74c3c' }}>nessun pokémon trovato</div>}
+              {filteredPokemon.map(p => (
+                <div key={p.id} style={{ cursor: 'pointer' }} onClick={() => handleAddPokemon(p.name)}>
+                  <img
+                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`}
+                    alt={p.name}
+                    style={{ width: 56, height: 56 }}
+                  />
+                  <div style={{ textAlign: 'center', color: '#3b4cca', fontWeight: 600 }}>{p.name}</div>
+                </div>
+              ))}
+            </div>
+            <button onClick={() => setShowAddModal(false)} style={{
+              marginTop: 16, background: '#e74c3c', color: '#fff', border: 'none', borderRadius: 8, padding: '6px 18px', cursor: 'pointer'
+            }}>chiudi</button>
+          </div>
+        </div>
       )}
     </div>
   );

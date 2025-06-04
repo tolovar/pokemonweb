@@ -135,9 +135,7 @@ function PokemonList() {
             style={{ padding: '8px', fontSize: '16px' }}
           />
         </form>
-        {searchError && (
-          <div style={{ color: 'yellow', marginBottom: 10 }}>{searchError}</div>
-        )}
+        {searchError && <div className="custom-error">{searchError}</div>}
         <PokemonGrid
           pokemonList={pokemonToShow}
           pokemonDetails={pokemonDetails}

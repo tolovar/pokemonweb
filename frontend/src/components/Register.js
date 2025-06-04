@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -7,6 +7,13 @@ function Register() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // setto i campi del form come vuoti per pulirli quando ricarico la pagina
+  useEffect(() => {
+    setUsername('');
+    setEmail('');
+    setPassword('');
+  }, []);
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -35,7 +42,7 @@ function Register() {
   return (
     <div style={{ maxWidth: 350, margin: '60px auto', padding: 24, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #0002' }}>
       <h2 style={{ textAlign: 'center' }}>Registrati</h2>
-      {error && <div style={{ color: 'red', marginBottom: 10 }}>{error}</div>}
+      {error && <div className="custom-error">{error}</div>}
       <form onSubmit={handleRegister}>
         <input
           type="text"

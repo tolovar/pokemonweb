@@ -70,3 +70,13 @@
   margin-top: 8px;
   font-size: 0.97rem;
 }
+
+/* font dei messaggi di errore */
+.custom-error {
+  font-family: 'Montserrat', sans-serif; 
+  color: #e74c3c;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+}

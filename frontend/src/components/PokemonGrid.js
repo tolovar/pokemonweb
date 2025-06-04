@@ -35,3 +35,4 @@ function PokemonGrid({ pokemonList, pokemonDetails, onPokemonClick }) {
 }
 
 export default PokemonGrid;
+

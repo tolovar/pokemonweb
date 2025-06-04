@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Auth.css";
@@ -12,6 +12,12 @@ function Login() {
   const [recoveryEmail, setRecoveryEmail] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+
+  // setto i campi del form come vuoti per pulirli quando ricarico la pagina
+  useEffect(() => {
+    setUsername('');
+    setPassword('');
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -71,7 +77,7 @@ function Login() {
   return (
     <div style={{ maxWidth: 350, margin: '60px auto', padding: 24, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #0002' }}>
       <h2 style={{ textAlign: 'center' }}>Login</h2>
-      {error && <div style={{ color: 'red', marginBottom: 10 }}>{error}</div>}
+      {error && <div className="custom-error">{error}</div>}
       {!showRecovery ? (
         <form onSubmit={handleLogin}>
           <input

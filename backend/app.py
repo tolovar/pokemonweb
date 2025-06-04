@@ -1,16 +1,19 @@
 from flask import Flask, request, jsonify, render_template, url_for, Blueprint, redirect
 import requests  
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.security import check_password_hash, generate_password_hash
 from backend.models.users import User
 from backend.models.admin import Admin
 from backend.models import db
+from backend.models.pokemon_team import PokemonTeam  
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+# fLASK-CORS aggiunge automaticamente gli header CORS
+CORS(app, supports_credentials=True)
+
 app.config['JWT_SECRET_KEY'] = 'super-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ales:supersecretpassword@localhost:5432/pokemondb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:supersecretpassword@localhost:5432/pokemondb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 jwt = JWTManager(app)
 db.init_app(app)
@@ -79,6 +82,22 @@ def delete_user(user_id):
     db.session.commit()
     return jsonify({"msg": "User deleted"})
 
+# funzione global per aggiungere gli header CORS
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,OPTIONS'
+    return response
+
+# aggiungo gli header CORS per il blueprint degli utenti
+@users_bp.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = 'http://localhost:3000'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type,Authorization'
+    response.headers['Access-Control-Allow-Methods'] = 'GET,POST,PUT,DELETE,OPTIONS'
+    return response
+
 app.register_blueprint(users_bp)
 
 # resistrazione utente
@@ -137,15 +156,39 @@ def create_admin_data():
 
 app.register_blueprint(admin_bp)
 
+# endpoint che restituisce solo la squadra dell'utente che visualizza la pagina
+@app.route('/api/team', methods=['GET'])
+@jwt_required()
+def get_team():
+    user_id = get_jwt_identity()
+    team = PokemonTeam.query.filter_by(user_id=user_id).all()
+    return jsonify([p.to_dict() for p in team])
+
 # gestisco gli errori
+
+@app.errorhandler(400)
+def bad_request(error):
+    return jsonify({"error": "Bad request"}), 400
+
+@app.errorhandler(401)
+def unauthorized(error):
+    return jsonify({"error": "Unauthorized"}), 401
+
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({"error": "Not found"}), 404
+
+@app.errorhandler(409)
+def conflict(error):
+    return jsonify({"error": "Conflict"}), 409
 
 @app.errorhandler(500)
 def internal_error(error):
     return jsonify({"error": "Internal server error"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    with app.app_context():
+        # creo tutte le tabelle definite nei modelli
+        db.create_all()  
+        app.run(debug=True)
 
