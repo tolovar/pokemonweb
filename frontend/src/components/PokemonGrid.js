@@ -12,22 +12,27 @@ function PokemonGrid({ pokemonList, pokemonDetails, onPokemonClick }) {
           // in modo da poterlo usare in CSS
           data-type={pokemonDetails[pokemon.name]?.types?.[0]?.type?.name || ''}
         >
-          <button
-            className="pokemon-sprite-btn"
+          <div
+            className="pokemon-card"
             onClick={() => onPokemonClick(pokemon.name)}
-            aria-label={`dettagli di ${pokemon.name}`}
           >
-            {pokemonDetails[pokemon.name] ? (
-              <img
-                src={pokemonDetails[pokemon.name].sprites.front_default}
-                alt={pokemon.name}
-                className="pokemon-sprite"
-              />
-            ) : (
-              <div className="pokemon-sprite-placeholder" />
-            )}
-          </button>
-          <div className="pokemon-name">{capitalize(pokemon.name)}</div>
+            <button
+              className="pokemon-sprite-btn"
+              onClick={() => onPokemonClick(pokemon.name)}
+              aria-label={`dettagli di ${pokemon.name}`}
+            >
+              {pokemonDetails[pokemon.name] ? (
+                <img
+                  src={pokemonDetails[pokemon.name].sprites.front_default}
+                  alt={pokemon.name}
+                  className="pokemon-sprite"
+                />
+              ) : (
+                <div className="pokemon-sprite-placeholder" />
+              )}
+            </button>
+            <div className="pokemon-name">{capitalize(pokemon.name)}</div>
+          </div>
         </li>
       ))}
     </ul>

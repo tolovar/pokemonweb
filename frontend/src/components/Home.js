@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import pokedexGif from '../assets/pokedex.gif';
 import kantoMap from '../assets/Kanto_Map.png';
 import '../App.css';
-
+import { AuthContext } from '../context/AuthContext'; // importo il context per sapere se l'utente è autenticato
 
 function Home() {
   const navigate = useNavigate();
+  // recupero lo stato di autenticazione
+  const { isAuthenticated } = useContext(AuthContext); 
 
   const handleClick = () => {
     navigate('/pokemon');
@@ -14,6 +16,11 @@ function Home() {
 
   const handleLogin = () => {
     navigate('/login');
+  };
+
+  // funzione per andare alla pagina della squadra
+  const handleTeam = () => {
+    navigate('/pokemon-team');
   };
 
   return (
@@ -48,12 +55,12 @@ function Home() {
       <button
         onClick={handleClick}
         style={{
-        background: 'none',
-        outline: 'none',
-        borderRadius: '50%',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-        transition: 'transform 0.2s',
-        marginBottom: '20px',
+          background: 'none',
+          outline: 'none',
+          borderRadius: '50%',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+          transition: 'transform 0.2s',
+          marginBottom: '20px',
           border: 'none',
           cursor: 'pointer',
           padding: 0
@@ -61,23 +68,44 @@ function Home() {
       >
         <img src={pokedexGif} alt="Pokédex" style={{ width: '260px' }} />
       </button>
-      <button
-        onClick={handleLogin}
-        style={{
-          marginTop: '30px',
-          padding: '12px 32px',
-          fontSize: '1.2rem',
-          fontWeight: 'bold',
-          background: '#3b4cca',
-          color: '#ffcb05',
-          border: 'none',
-          borderRadius: '8px',
-          cursor: 'pointer',
-          boxShadow: '0 2px 6px #0002'
-        }}
-      >
-        Login
-      </button>
+      {/* mostro il bottone della squadra se autenticato, altrimenti il login */}
+      {isAuthenticated ? (
+        <button
+          onClick={handleTeam}
+          style={{
+            marginTop: '30px',
+            padding: '12px 32px',
+            fontSize: '1.2rem',
+            fontWeight: 'bold',
+            background: '#ffcb05',
+            color: '#3b4cca',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            boxShadow: '0 2px 6px #0002'
+          }}
+        >
+          La mia squadra
+        </button>
+      ) : (
+        <button
+          onClick={handleLogin}
+          style={{
+            marginTop: '30px',
+            padding: '12px 32px',
+            fontSize: '1.2rem',
+            fontWeight: 'bold',
+            background: '#3b4cca',
+            color: '#ffcb05',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            boxShadow: '0 2px 6px #0002'
+          }}
+        >
+          Login
+        </button>
+      )}
     </div>
   );
 }
