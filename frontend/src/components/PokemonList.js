@@ -4,6 +4,8 @@ import PokemonGrid from './PokemonGrid';
 import '../App.css';
 import useDebounce from '../hooks/useDebounce';
 import { typeColorClass } from '../utils/typeColorClass';
+import Loader from './common/Loader';
+import toast from 'react-hot-toast';
 
 const PAGE_SIZE = 18;
 
@@ -13,7 +15,7 @@ function PokemonList() {
   const [searchResults, setSearchResults] = useState([]);
   const [searchError, setSearchError] = useState('');
   const [pokemonDetails, setPokemonDetails] = useState({});
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
@@ -126,6 +128,8 @@ function PokemonList() {
     debouncedSetSearch(search);
   };
 
+  if (loading) return <Loader />;
+
   return (
     <div className="">
       <header className="App-header">
@@ -150,7 +154,7 @@ function PokemonList() {
           pokemonDetails={pokemonDetails}
           onPokemonClick={name => navigate(`/pokemon/${name}`)}
         />
-        {loading && <div style={{ color: 'white', marginTop: 10 }}>Caricamento...</div>}
+        {loading && <Loader />}
         {search.trim() === '' && totalPages > 1 && (
           <div style={{ marginTop: 16 }}>
             <button

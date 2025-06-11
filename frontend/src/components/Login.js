@@ -3,6 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Auth.css";
 import { typeColorClass } from '../utils/typeColorClass';
+import Input from '../common/Input';
+import Loader from '../common/Loader';
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -12,6 +14,7 @@ function Login() {
   const [showRecovery, setShowRecovery] = useState(false);
   const [recoveryEmail, setRecoveryEmail] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // setto i campi del form come vuoti per pulirli quando ricarico la pagina
@@ -27,6 +30,7 @@ function Login() {
       setError('Inserisci utente e password');
       return;
     }
+    setLoading(true);
     try {
       const res = await fetch('http://localhost:5000/api/login', {
         method: 'POST',
@@ -46,6 +50,8 @@ function Login() {
       navigate('/pokemon-team');
     } catch (err) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -80,10 +86,9 @@ function Login() {
       <form className="bg-white/90 rounded-2xl shadow-2xl p-8 w-full max-w-md space-y-6 border-4 border-red-500" onSubmit={handleLogin}>
         <h2 className="text-2xl font-bold text-center text-red-600">Accedi</h2>
         {error && <div className="text-red-600 text-center">{error}</div>}
-        <input
-          className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+        <Input
           type="text"
-          placeholder="Email o username"
+          placeholder="Username"
           value={username}
           onChange={e => setUsername(e.target.value)}
         />
@@ -98,7 +103,7 @@ function Login() {
           className="w-full bg-red-600 text-white py-2 rounded-lg font-bold hover:bg-yellow-400 hover:text-red-700 transition"
           type="submit"
         >
-          Accedi
+          {loading ? <Loader /> : 'Accedi'}
         </button>
         <div className="flex justify-between text-sm">
           <a href="/recover" className="text-blue-600 hover:underline">Password dimenticata?</a>

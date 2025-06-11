@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import PokemonCard from './PokemonCard';
 import { apiFetch } from '../services/api';
 import { typeColorClass } from '../utils/typeColorClass';
+import Loader from '../common/Loader';
 
 const MAX_TEAM_SIZE = 6;
 
@@ -13,6 +14,7 @@ function PokemonTeam() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [allPokemon, setAllPokemon] = useState([]);
   const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,6 +22,7 @@ function PokemonTeam() {
   useEffect(() => {
     async function fetchTeam() {
       if (isAuthenticated) {
+        setLoading(true);
         const res = await apiFetch('/api/team');
         const data = await res.json ? await res.json() : res;
         const teamWithSprites = await Promise.all(
@@ -34,6 +37,7 @@ function PokemonTeam() {
           })
         );
         setTeam(teamWithSprites);
+        setLoading(false);
       } else {
         // se l'utente non è loggato, lo reindirizzo al login
         navigate('/login');
@@ -162,6 +166,7 @@ function PokemonTeam() {
           </div>
         </div>
       )}
+      {loading && <Loader />}
     </div>
   );
 }

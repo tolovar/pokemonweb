@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { typeColorClass } from '../utils/typeColorClass';
+import Input from '../common/Input';
+import { toast } from 'react-hot-toast';
+import Loader from '../common/Loader';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -9,6 +12,7 @@ function Register() {
   const [repeatPassword, setRepeatPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   // setto i campi del form come vuoti per pulirli quando ricarico la pagina
@@ -32,19 +36,22 @@ function Register() {
       return;
     }
     try {
+      setLoading(true);
       const res = await fetch('http://localhost:5000/api/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password }),
       });
+      setLoading(false);
       if (!res.ok) {
         const data = await res.json();
         throw new Error(data.error || 'Errore durante la registrazione');
       }
-      setSuccess('Registrazione avvenuta! Ora puoi accedere.');
+      toast.success('Registrazione avvenuta!');
       setTimeout(() => navigate('/login'), 1500);
     } catch (err) {
-      setError(err.message);
+      setLoading(false);
+      toast.error(err.message);
     }
   };
 
@@ -54,36 +61,28 @@ function Register() {
         <h2 className="text-2xl font-bold text-center text-yellow-500">Registrati</h2>
         {error && <div className="text-red-600 text-center">{error}</div>}
         {success && <div className="text-green-600 text-center">{success}</div>}
-        <input
-          className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+        <Input
           type="text"
           placeholder="Nome utente"
           value={username}
-          required
           onChange={e => setUsername(e.target.value)}
         />
-        <input
-          className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+        <Input
           type="email"
           placeholder="Email"
           value={email}
-          required
           onChange={e => setEmail(e.target.value)}
         />
-        <input
-          className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+        <Input
           type="password"
           placeholder="Password"
           value={password}
-          required
           onChange={e => setPassword(e.target.value)}
         />
-        <input
-          className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+        <Input
           type="password"
           placeholder="Ripeti password"
           value={repeatPassword}
-          required
           onChange={e => setRepeatPassword(e.target.value)}
         />
         <button
@@ -92,6 +91,7 @@ function Register() {
         >
           Registrati
         </button>
+        {loading && <Loader />}
         <div className="flex justify-between text-sm">
           <a href="/login" className="text-blue-600 hover:underline">Hai già un account?</a>
           <a href="/" className="text-blue-600 hover:underline">Torna alla home</a>

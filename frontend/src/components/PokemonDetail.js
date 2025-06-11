@@ -3,29 +3,27 @@ import { capitalize } from '../helpers/text';
 import { AuthContext } from '../context/AuthContext';
 import { apiFetch } from '../services/api'; // uso apiFetch per includere il token
 import { typeColorClass } from '../utils/typeColorClass';
+import Loader from '../common/Loader';
 
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {
   const [details, setDetails] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { isAuthenticated } = useContext(AuthContext);
   const [addSuccess, setAddSuccess] = useState(null);
 
   // quando il componente viene montato o il nome cambia, scarico i dettagli del pokémon
   useEffect(() => {
+    setLoading(true);
     fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
       .then(res => res.json())
-      .then(setDetails);
+      .then(data => {
+        setDetails(data);
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
   }, [name]);
 
-  if (!details) return <div>Caricamento</div>;
-  if (details.error) return <div>Pokémon non trovato</div>;
-
-  // conversioni
-  const pesoKg = (details.weight / 10).toFixed(1); // da libre a chilogrammi
-  const altezzaM = (details.height / 10).toFixed(2); // da decimetri a metri
-  const nome = capitalize(details.name);
-
-  // aggiungo il pokémon alla squadra dell'utente autenticato
   const handleAddToTeam = async () => {
     try {
       await apiFetch('/api/team', {
@@ -38,6 +36,15 @@ function PokemonDetail({ name }) {
       setAddSuccess('Errore durante l\'aggiunta del Pokémon');
     }
   };
+
+  if (loading) return <Loader />;
+  if (!details) return <div>Caricamento</div>;
+  if (details.error) return <div>Pokémon non trovato</div>;
+
+  // conversioni
+  const pesoKg = (details.weight / 10).toFixed(1); // da libre a chilogrammi
+  const altezzaM = (details.height / 10).toFixed(2); // da decimetri a metri
+  const nome = capitalize(details.name);
 
   return (
     <div className="App">
