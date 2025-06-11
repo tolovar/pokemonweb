@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, url_for, Blueprint, redirect
+from flask import Flask, request, jsonify, render_template, url_for, Blueprint, redirect, session
 import requests  
 from flask_cors import CORS, cross_origin
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
@@ -130,15 +130,37 @@ def register():
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json()
-    if not data or not data.get('username') or not data.get('password'):
-        return jsonify({'message': 'Dati mancanti'}), 400
+    username = data.get('username')
+    session.setdefault('failed_attempts', {})
+    failed_attempts = session['failed_attempts'].get(username, 0)
+
     user = User.query.filter(
-        (User.username == data['username']) | (User.email == data['username'])
+        (User.username == username) | (User.email == username)
     ).first()
     if not user or not check_password_hash(user.password_hash, data['password']):
-        return jsonify({'message': 'Credenziali errate'}), 401
+        if user:
+            failed_attempts += 1
+            session['failed_attempts'][username] = failed_attempts
+            if failed_attempts >= 3:
+                send_recovery_mail_mailgun(user.email, user.username)
+                # resetto i tentativi falliti dopo l'invio della mail
+                session['failed_attempts'][username] = 0  
+        return jsonify({'message': 'Credenziali errate.'}), 401
+    session['failed_attempts'][username] = 0 
     access_token = create_access_token(identity=user.id)
     return jsonify({'token': access_token}), 200
+
+# uso Mailgun per inviare la mail di recupero
+def send_recovery_mail_mailgun(email, username):
+    return requests.post(
+        "https://api.mailgun.net/v3/tuodominio.mailgun.org/messages",
+        # da sostituire con il dominio e mail corretti
+        auth=("api", "API_KEY_MAILGUN"),
+        data={"from": "PokemonWeb <mail@dominio.mailgun.org>",
+              "to": [email],
+              "subject": "Tentativo di accesso fallito! Recupero account",
+              "text": f"Ciao {username},\n\nAbbiamo rilevato un tentativo di accesso fallito.\nSe hai dimenticato la password, puoi reimpostarla qui: https://PokemonWeb/reset-password?email={email}"}
+    )
 
 # blueprint admin
 admin_bp = Blueprint('admin', __name__, url_prefix='/api/admin')
