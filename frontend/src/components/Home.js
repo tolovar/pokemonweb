@@ -1,7 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import pokedexGif from '../assets/pokedex.gif';
-import kantoMap from '../assets/Kanto_Map.png';
 import '../App.css';
 import { AuthContext } from '../context/AuthContext'; // importo il context per sapere se l'utente è autenticato
 import { typeColorClass } from '../utils/typeColorClass';
@@ -32,7 +30,7 @@ function Home() {
         textAlign: 'center',
         marginTop: '0px',
         minHeight: '100vh',
-        backgroundImage: `url(${kantoMap})`,
+        backgroundImage: `url(/assets/Kanto_Map.png)`, // uso percorso assoluto perché fa riferimento ad assets
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
@@ -69,7 +67,7 @@ function Home() {
           padding: 0
         }}
       >
-        <img src={pokedexGif} alt="Pokédex" style={{ width: '260px' }} />
+        <img src="/assets/pokedex.gif" alt="Pokédex" style={{ width: '260px' }} /> {/* usa percorso assoluto! */}
       </button>
       {/* mostro il bottone della squadra se autenticato, altrimenti il login */}
       {isAuthenticated ? (

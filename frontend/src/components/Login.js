@@ -108,8 +108,8 @@ function Login() {
           {loading ? <Loader /> : 'Accedi'}
         </button>
         <div className="flex justify-between text-sm">
-          <a href="/recover" className="text-blue-600 hover:underline">Password dimenticata?</a>
-          <a href="/register" className="text-blue-600 hover:underline">Registrati</a>
+          <Link to="/recover" className="text-blue-600 hover:underline">Password dimenticata?</Link>
+          <Link to="/register" className="text-blue-600 hover:underline">Registrati</Link>
         </div>
       </form>
     </div>
