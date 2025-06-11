@@ -2,6 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Auth.css";
+import { typeColorClass } from '../utils/typeColorClass';
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -75,71 +76,35 @@ function Login() {
   };
 
   return (
-    <div style={{ maxWidth: 350, margin: '60px auto', padding: 24, background: '#fff', borderRadius: 12, boxShadow: '0 2px 8px #0002' }}>
-      <h2 style={{ textAlign: 'center' }}>Login</h2>
-      {error && <div className="custom-error">{error}</div>}
-      {!showRecovery ? (
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            placeholder="Email o nome utente"
-            value={username}
-            required
-            onChange={e => setUsername(e.target.value)}
-            style={{ width: '100%', marginBottom: 12, padding: 8 }}
-          />
-          <div style={{ position: 'relative', marginBottom: 12 }}>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              placeholder="Password"
-              value={password}
-              required
-              onChange={e => setPassword(e.target.value)}
-              style={{ width: '100%', padding: 8, paddingRight: 40 }}
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(v => !v)}
-              style={{
-                position: 'absolute',
-                right: 8,
-                top: 8,
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                color: '#3b4cca'
-              }}
-              tabIndex={-1}
-            >
-              {showPassword ? 'Nascondi' : 'Mostra'}
-            </button>
-          </div>
-          <button type="submit" style={{ width: '100%', padding: 10, marginBottom: 8 }}>Accedi</button>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <button type="button" onClick={() => setShowRecovery(true)} style={{ background: 'none', border: 'none', color: '#3b4cca', cursor: 'pointer', padding: 0 }}>
-              Password dimenticata?
-            </button>
-            <Link to="/register" style={{ color: '#3b4cca', textDecoration: 'underline', fontSize: 14 }}>Registrati</Link>
-          </div>
-        </form>
-      ) : (
-        <form onSubmit={handleRecovery}>
-          <input
-            type="email"
-            placeholder="Inserisci la tua email"
-            value={recoveryEmail}
-            required
-            onChange={e => setRecoveryEmail(e.target.value)}
-            style={{ width: '100%', marginBottom: 12, padding: 8 }}
-          />
-          <button type="submit" style={{ width: '100%', padding: 10, marginBottom: 8 }}>Recupera password</button>
-          <div style={{ textAlign: 'right' }}>
-            <button type="button" onClick={() => setShowRecovery(false)} style={{ background: 'none', border: 'none', color: '#3b4cca', cursor: 'pointer' }}>
-              Torna al login
-            </button>
-          </div>
-        </form>
-      )}
+    <div className="flex items-center justify-center min-h-[70vh]">
+      <form className="bg-white/90 rounded-2xl shadow-2xl p-8 w-full max-w-md space-y-6 border-4 border-red-500" onSubmit={handleLogin}>
+        <h2 className="text-2xl font-bold text-center text-red-600">Accedi</h2>
+        {error && <div className="text-red-600 text-center">{error}</div>}
+        <input
+          className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+          type="text"
+          placeholder="Email o username"
+          value={username}
+          onChange={e => setUsername(e.target.value)}
+        />
+        <input
+          className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+          type={showPassword ? "text" : "password"}
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+        <button
+          className="w-full bg-red-600 text-white py-2 rounded-lg font-bold hover:bg-yellow-400 hover:text-red-700 transition"
+          type="submit"
+        >
+          Accedi
+        </button>
+        <div className="flex justify-between text-sm">
+          <a href="/recover" className="text-blue-600 hover:underline">Password dimenticata?</a>
+          <a href="/register" className="text-blue-600 hover:underline">Registrati</a>
+        </div>
+      </form>
     </div>
   );
 }

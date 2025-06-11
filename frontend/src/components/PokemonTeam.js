@@ -3,6 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import PokemonCard from './PokemonCard';
 import { apiFetch } from '../services/api';
+import { typeColorClass } from '../utils/typeColorClass';
 
 const MAX_TEAM_SIZE = 6;
 

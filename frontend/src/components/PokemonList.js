@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import PokemonGrid from './PokemonGrid';
 import '../App.css';
 import useDebounce from '../hooks/useDebounce';
+import { typeColorClass } from '../utils/typeColorClass';
 
 const PAGE_SIZE = 18;
 
@@ -120,20 +121,28 @@ function PokemonList() {
   // paginazione, per non appesantire la lista
   const totalPages = Math.ceil(allPokemonNames.length / PAGE_SIZE);
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    debouncedSetSearch(search);
+  };
+
   return (
     <div className="">
       <header className="App-header">
-        <form className="search-form" onSubmit={e => e.preventDefault()}>
+        <form className="flex items-center justify-center my-8" onSubmit={handleSearch}>
           <input
+            className="w-72 px-4 py-2 rounded-l-full border-2 border-gray-300 focus:border-yellow-400 focus:outline-none"
             type="text"
-            placeholder="cerca pokémon per nome"
+            placeholder="Cerca Pokémon..."
             value={search}
-            onChange={e => {
-              setSearch(e.target.value);
-              debouncedSetSearch(e.target.value);
-            }}
-            style={{ padding: '8px', fontSize: '16px' }}
+            onChange={e => setSearch(e.target.value)}
           />
+          <button
+            className="bg-yellow-400 text-red-700 px-6 py-2 rounded-r-full font-bold hover:bg-red-600 hover:text-white transition"
+            type="submit"
+          >
+            Cerca
+          </button>
         </form>
         {searchError && <div className="custom-error">{searchError}</div>}
         <PokemonGrid

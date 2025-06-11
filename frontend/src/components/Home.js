@@ -4,6 +4,7 @@ import pokedexGif from '../assets/pokedex.gif';
 import kantoMap from '../assets/Kanto_Map.png';
 import '../App.css';
 import { AuthContext } from '../context/AuthContext'; // importo il context per sapere se l'utente è autenticato
+import { typeColorClass } from '../utils/typeColorClass';
 
 function Home() {
   const navigate = useNavigate();

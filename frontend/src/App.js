@@ -7,22 +7,26 @@ import Login from './components/Login';
 import Register from './components/Register';
 import PokemonTeam from './components/PokemonTeam';
 import { AuthProvider } from './context/AuthContext';
+import Header from './components/Header';
 
 // app principale con routing
 function App() {
   return (
     <AuthProvider>
       <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/pokemon" element={<PokemonList />} />
-          <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
-          <Route path="/pokemon-team" element={<PokemonTeam />} />
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <div className="min-h-screen bg-gradient-to-b from-red-600 via-red-400 via-70% to-blue-700">
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/pokemon" element={<PokemonList />} />
+            <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
+            <Route path="/pokemon-team" element={<PokemonTeam />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
       </Router>
     </AuthProvider>
   );

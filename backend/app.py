@@ -8,6 +8,12 @@ from backend.models.admin import Admin
 from backend.models import db
 from backend.models.pokemon_team import PokemonTeam  
 from flask_mail import Mail, Message
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("messaggio di log")
 
 app = Flask(__name__)
 # fLASK-CORS aggiunge automaticamente gli header CORS
@@ -26,6 +32,7 @@ jwt = JWTManager(app)
 db.init_app(app)
 app.template_folder = 'templates'
 mail = Mail(app)
+limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
 
 # blueprint per gli utenti
 users_bp = Blueprint('users', __name__, url_prefix='/api/users')
@@ -110,6 +117,7 @@ app.register_blueprint(users_bp)
 
 # resistrazione utente
 @app.route('/api/register', methods=['POST', 'OPTIONS'])
+@limiter.limit("5 per minute")
 def register():
     if request.method == 'OPTIONS':
         return '', 200
@@ -128,6 +136,7 @@ def register():
 
 # login utente
 @app.route('/api/login', methods=['POST'])
+@limiter.limit("5 per minute")
 def login():
     data = request.get_json()
     username = data.get('username')

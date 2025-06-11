@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { capitalize } from '../helpers/text'; 
 import { AuthContext } from '../context/AuthContext';
 import { apiFetch } from '../services/api'; // uso apiFetch per includere il token
+import { typeColorClass } from '../utils/typeColorClass';
 
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {
@@ -41,38 +42,39 @@ function PokemonDetail({ name }) {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 style={{
-          textTransform: 'capitalize',
-          marginBottom: 24
-        }}>{nome}</h1>
-        <img src={details.sprites.front_default} alt={details.name} style={{ width: 120, height: 120, marginBottom: 16 }} />
-        <div style={{
-          background: 'rgba(255,255,255,0.85)',
-          borderRadius: 16,
-          padding: 24,
-          display: 'inline-block',
-          marginBottom: 24,
-          boxShadow: '0 2px 12px #3b4cca22'
-        }}>
-          <p><strong>Altezza:</strong> {altezzaM} m</p>
-          <p><strong>Peso:</strong> {pesoKg} kg</p>
-          <p>
-            <strong>Tipi:</strong> {details.types.map(t => capitalize(t.type.name)).join(', ')}
-          </p>
-          <p>
-            <strong>Abilità:</strong> {details.abilities.map(a => capitalize(a.ability.name)).join(', ')}
-          </p>
-          <p>
-            <strong>Mosse principali:</strong> {details.moves.slice(0, 4).map(m => capitalize(m.move.name)).join(', ')}
-            {details.moves.length > 4 ? '...' : ''}
-          </p>
+        <div className="bg-white/90 rounded-2xl shadow-xl p-8 max-w-lg mx-auto border-4 border-blue-500">
+          <div className="flex flex-col items-center">
+            <img src={details.sprites.front_default} alt={details.name} className="w-32 h-32 drop-shadow-lg" />
+            <h2 className="text-3xl font-bold text-blue-700 mt-4">{nome}</h2>
+            <div className="flex gap-2 mt-2">
+              {details.types.map(type => (
+                <span key={type} className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${typeColorClass(type)}`}>
+                  {type}
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 w-full">
+              <p><strong>Altezza:</strong> {altezzaM} m</p>
+              <p><strong>Peso:</strong> {pesoKg} kg</p>
+              <p>
+                <strong>Tipi:</strong> {details.types.map(t => capitalize(t.type.name)).join(', ')}
+              </p>
+              <p>
+                <strong>Abilità:</strong> {details.abilities.map(a => capitalize(a.ability.name)).join(', ')}
+              </p>
+              <p>
+                <strong>Mosse principali:</strong> {details.moves.slice(0, 4).map(m => capitalize(m.move.name)).join(', ')}
+                {details.moves.length > 4 ? '...' : ''}
+              </p>
+            </div>
+          </div>
         </div>
         {isAuthenticated && (
           <button
             onClick={handleAddToTeam}
             style={{
               display: 'block',
-              margin: '0 auto 24px auto',
+              margin: '24px auto',
               padding: '12px 32px',
               fontSize: '1.1rem',
               fontWeight: 'bold',
