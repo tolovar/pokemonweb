@@ -1,14 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import pokedexGif from '../assets/pokedex.gif';
 import kantoMap from '../assets/Kanto_Map.png';
 import '../App.css';
 import { AuthContext } from '../context/AuthContext'; // importo il context per sapere se l'utente è autenticato
 import { typeColorClass } from '../utils/typeColorClass';
-import Loader from '../common/Loader';
+import Loader from './common/Loader';
 
 function Home() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   // recupero lo stato di autenticazione
   const { isAuthenticated } = useContext(AuthContext); 
 

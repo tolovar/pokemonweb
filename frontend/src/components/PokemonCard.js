@@ -1,6 +1,7 @@
 import React from 'react';
 import { typeColorClass } from '../utils/typeColorClass';
-import Loader from '../common/Loader';
+import Loader from './common/Loader';
+import Input from './common/Input';
 
 // card del pokemon 
 function PokemonCard({ pokemon, onRemove, loading }) {

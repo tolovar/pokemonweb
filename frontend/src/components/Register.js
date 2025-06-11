@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { typeColorClass } from '../utils/typeColorClass';
-import Input from '../common/Input';
+import Loader from './common/Loader';
+import Input from './common/Input';
 import { toast } from 'react-hot-toast';
-import Loader from '../common/Loader';
 
 function Register() {
   const [username, setUsername] = useState('');

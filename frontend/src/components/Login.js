@@ -3,8 +3,8 @@ import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import "./Auth.css";
 import { typeColorClass } from '../utils/typeColorClass';
-import Input from '../common/Input';
-import Loader from '../common/Loader';
+import Loader from './common/Loader';
+import Input from './common/Input';
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -91,13 +91,15 @@ function Login() {
           placeholder="Username"
           value={username}
           onChange={e => setUsername(e.target.value)}
+          name="username"
         />
-        <input
+        <Input
           className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
           type={showPassword ? "text" : "password"}
           placeholder="Password"
           value={password}
           onChange={e => setPassword(e.target.value)}
+          name="password"
         />
         <button
           className="w-full bg-red-600 text-white py-2 rounded-lg font-bold hover:bg-yellow-400 hover:text-red-700 transition"

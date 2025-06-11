@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from models.pokemon_team import PokemonTeam
-from models import db
+from backend.models.pokemon_team import PokemonTeam
+from backend.models import db
 
 pokemon_bp = Blueprint('pokemon', __name__, url_prefix='/api')
 

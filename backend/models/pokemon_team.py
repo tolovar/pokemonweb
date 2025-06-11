@@ -1,4 +1,4 @@
-from models import db
+from backend.models import db
 
 class PokemonTeam(db.Model):
     id = db.Column(db.Integer, primary_key=True)

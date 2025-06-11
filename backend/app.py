@@ -9,11 +9,11 @@ from flask_limiter.util import get_remote_address
 from flask_migrate import Migrate
 import logging
 
-from models import db
-from routes.auth import auth_bp
-from backend.models.users import users_bp
-from routes.pokemon import pokemon_bp
-from routes.admin import admin_bp
+from backend.models import db
+from backend.routes.auth import auth_bp
+from backend.routes.users import users_bp
+from backend.routes.pokemon import pokemon_bp
+from backend.routes.admin import admin_bp
 
 load_dotenv()
 

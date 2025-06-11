@@ -3,7 +3,8 @@ import { capitalize } from '../helpers/text';
 import { AuthContext } from '../context/AuthContext';
 import { apiFetch } from '../services/api'; // uso apiFetch per includere il token
 import { typeColorClass } from '../utils/typeColorClass';
-import Loader from '../common/Loader';
+import Loader from './common/Loader';
+import Input from './common/Input';
 
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {

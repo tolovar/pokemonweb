@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import PokemonCard from './PokemonCard';
 import { apiFetch } from '../services/api';
 import { typeColorClass } from '../utils/typeColorClass';
-import Loader from '../common/Loader';
+import Loader from './common/Loader';
+import Input from './common/Input';
 
 const MAX_TEAM_SIZE = 6;
 
@@ -133,7 +134,7 @@ function PokemonTeam() {
             background: '#fff', borderRadius: 16, padding: 24, minWidth: 320, maxHeight: 500, overflowY: 'auto'
           }}>
             <h3 style={{ color: '#3b4cca', marginBottom: 16 }}>scegli un pokémon</h3>
-            <input
+            <Input
               type="text"
               placeholder="cerca pokémon"
               value={search}

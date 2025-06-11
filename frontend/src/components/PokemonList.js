@@ -6,6 +6,7 @@ import useDebounce from '../hooks/useDebounce';
 import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import toast from 'react-hot-toast';
+import Input from './common/Input';
 
 const PAGE_SIZE = 18;
 
@@ -18,6 +19,7 @@ function PokemonList() {
   const [loading, setLoading] = useState(true);
   const [debouncedSearch, setDebouncedSearch] = useState('');
   const [page, setPage] = useState(1);
+  const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
   // debounce handler
@@ -114,11 +116,23 @@ function PokemonList() {
 
   // pokémon da mostrare
   const pokemonToShow = search.trim() === ''
-    ? allPokemonNames.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(name => ({
-        name,
-        url: `https://pokeapi.co/api/v2/pokemon/${name}`
-      }))
-    : searchResults.map(d => ({ name: d.name, url: `https://pokeapi.co/api/v2/pokemon/${d.name}` }));
+    ? allPokemonNames.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map(name => {
+        const details = pokemonDetails[name];
+        return {
+          name,
+          id: details?.id,
+          type: details?.types?.[0]?.type?.name,
+          sprite: details?.sprites?.front_default ||
+                  `https://img.pokemondb.net/sprites/home/normal/${name.toLowerCase()}.png`
+        };
+      })
+    : searchResults.map(d => ({
+        name: d.name,
+        id: d.id,
+        type: d.types?.[0]?.type?.name,
+        sprite: d.sprites?.front_default ||
+                `https://img.pokemondb.net/sprites/home/normal/${d.name.toLowerCase()}.png`
+      }));
 
   // paginazione, per non appesantire la lista
   const totalPages = Math.ceil(allPokemonNames.length / PAGE_SIZE);
@@ -126,6 +140,10 @@ function PokemonList() {
   const handleSearch = (e) => {
     e.preventDefault();
     debouncedSetSearch(search);
+  };
+
+  const handleChange = (e) => {
+    setUsername(e.target.value);
   };
 
   if (loading) return <Loader />;
@@ -174,6 +192,13 @@ function PokemonList() {
             </button>
           </div>
         )}
+        <Input
+          type="text"
+          placeholder="Nome"
+          value={username}
+          onChange={handleChange}
+          name="nome"
+        />
       </header>
     </div>
   );
