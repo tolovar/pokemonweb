@@ -121,17 +121,20 @@ function PokemonList() {
         return {
           name,
           id: details?.id,
-          type: details?.types?.[0]?.type?.name,
+          // solo il primo tipo 
+          type: details?.types?.[0]?.type?.name || '', // sol!
           sprite: details?.sprites?.front_default ||
-                  `https://img.pokemondb.net/sprites/home/normal/${name.toLowerCase()}.png`
+                  `https://img.pokemondb.net/sprites/home/normal/${name.toLowerCase()}.png`,
+          types: details?.types?.map(t => t.type.name).join(' / ') || ''
         };
       })
     : searchResults.map(d => ({
         name: d.name,
-        id: d.id,
-        type: d.types?.[0]?.type?.name,
+        // solo il primo tipo anche nei risultati ricerca
+        type: d.types?.[0]?.type?.name || '', 
         sprite: d.sprites?.front_default ||
-                `https://img.pokemondb.net/sprites/home/normal/${d.name.toLowerCase()}.png`
+                `https://img.pokemondb.net/sprites/home/normal/${d.name.toLowerCase()}.png`,
+        types: d.types?.map(t => t.type.name).join(' / ') || ''
       }));
 
   // paginazione, per non appesantire la lista
@@ -169,7 +172,7 @@ function PokemonList() {
         {searchError && <div className="custom-error">{searchError}</div>}
         <PokemonGrid
           pokemonList={pokemonToShow}
-          pokemonDetails={pokemonDetails}
+          loading={loading}
           onPokemonClick={name => navigate(`/pokemon/${name}`)}
         />
         {loading && <Loader />}
@@ -192,13 +195,6 @@ function PokemonList() {
             </button>
           </div>
         )}
-        <Input
-          type="text"
-          placeholder="Nome"
-          value={username}
-          onChange={handleChange}
-          name="nome"
-        />
       </header>
     </div>
   );

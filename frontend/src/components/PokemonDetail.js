@@ -55,9 +55,12 @@ function PokemonDetail({ name }) {
             <img src={details.sprites.front_default} alt={details.name} className="w-32 h-32 drop-shadow-lg" />
             <h2 className="text-3xl font-bold text-blue-700 mt-4">{nome}</h2>
             <div className="flex gap-2 mt-2">
-              {details.types.map(type => (
-                <span key={type} className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${typeColorClass(type)}`}>
-                  {type}
+              {details.types.map(t => (
+                <span
+                  key={t.type.name}
+                  className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${typeColorClass(t.type.name)}`}
+                >
+                  {t.type.name}
                 </span>
               ))}
             </div>
