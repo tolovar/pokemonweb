@@ -6,6 +6,7 @@ import { apiFetch } from '../services/api';
 import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import Input from './common/Input';
+import Header from './Header';
 
 const MAX_TEAM_SIZE = 6;
 
@@ -93,6 +94,7 @@ function PokemonTeam() {
 
   return (
     <div style={{ position: 'relative', minHeight: 400 }}>
+      <Header />
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {team.map((p) => (
           <PokemonCard

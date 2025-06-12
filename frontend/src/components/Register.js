@@ -4,6 +4,7 @@ import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import Input from './common/Input';
 import { toast } from 'react-hot-toast';
+import Header from './Header';
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -56,47 +57,50 @@ function Register() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-[70vh]">
-      <form className="bg-white/90 rounded-2xl shadow-2xl p-8 w-full max-w-md space-y-6 border-4 border-yellow-400" onSubmit={handleRegister}>
-        <h2 className="text-2xl font-bold text-center text-yellow-500">Registrati</h2>
-        {error && <div className="text-red-600 text-center">{error}</div>}
-        {success && <div className="text-green-600 text-center">{success}</div>}
-        <Input
-          type="text"
-          placeholder="Nome utente"
-          value={username}
-          onChange={e => setUsername(e.target.value)}
-        />
-        <Input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
-        <Input
-          type="password"
-          placeholder="Ripeti password"
-          value={repeatPassword}
-          onChange={e => setRepeatPassword(e.target.value)}
-        />
-        <button
-          className="w-full bg-yellow-400 text-blue-900 py-2 rounded-lg font-bold hover:bg-blue-700 hover:text-yellow-200 transition"
-          type="submit"
-        >
-          Registrati
-        </button>
-        {loading && <Loader />}
-        <div className="flex justify-between text-sm">
-          <a href="/login" className="text-blue-600 hover:underline">Hai già un account?</a>
-          <a href="/" className="text-blue-600 hover:underline">Torna alla home</a>
-        </div>
-      </form>
+    <div>
+      <Header />
+      <div className="flex items-center justify-center min-h-[70vh] pt-12">
+        <form className="bg-white/90 rounded-2xl shadow-2xl p-8 w-full max-w-md space-y-6 border-4 border-yellow-400" onSubmit={handleRegister}>
+          <h2 className="text-2xl font-bold text-center text-yellow-500">Registrati</h2>
+          {error && <div className="text-red-600 text-center">{error}</div>}
+          {success && <div className="text-green-600 text-center">{success}</div>}
+          <Input
+            type="text"
+            placeholder="Nome utente"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+          />
+          <Input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+          />
+          <Input
+            type="password"
+            placeholder="Ripeti password"
+            value={repeatPassword}
+            onChange={e => setRepeatPassword(e.target.value)}
+          />
+          <button
+            className="w-full bg-yellow-400 text-blue-900 py-2 rounded-lg font-bold hover:bg-blue-700 hover:text-yellow-200 transition"
+            type="submit"
+          >
+            Registrati
+          </button>
+          {loading && <Loader />}
+          <div className="flex justify-between text-sm">
+            <a href="/login" className="text-blue-600 hover:underline">Hai già un account?</a>
+            <a href="/" className="text-blue-600 hover:underline">Torna alla home</a>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { apiFetch } from '../services/api'; // uso apiFetch per includere il tok
 import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import Input from './common/Input';
+import Header from './Header';
 
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {
@@ -49,7 +50,8 @@ function PokemonDetail({ name }) {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
+      <main className="pt-12">
         <div className="bg-white/90 rounded-2xl shadow-xl p-8 max-w-lg mx-auto border-4 border-blue-500">
           <div className="flex flex-col items-center">
             <img src={details.sprites.front_default} alt={details.name} className="w-32 h-32 drop-shadow-lg" />
@@ -111,7 +113,7 @@ function PokemonDetail({ name }) {
           </div>
         )}
         <a href="/pokemon" style={{ color: '#61dafb', fontWeight: 600 }}>Torna alla lista</a>
-      </header>
+      </main>
     </div>
   );
 }

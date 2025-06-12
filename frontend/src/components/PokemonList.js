@@ -7,6 +7,7 @@ import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import toast from 'react-hot-toast';
 import Input from './common/Input';
+import Header from './Header';
 
 const PAGE_SIZE = 18;
 
@@ -43,6 +44,7 @@ function PokemonList() {
 
   // effettuo la ricerca solo tramite API e solo su corrispondenze parziali
   useEffect(() => {
+    // cerco solo quando debouncedSearch cambia
     if (debouncedSearch.trim() === '') {
       setSearchResults([]);
       setSearchError('');
@@ -121,8 +123,8 @@ function PokemonList() {
         return {
           name,
           id: details?.id,
-          // solo il primo tipo 
-          type: details?.types?.[0]?.type?.name || '', // sol!
+          // solo il primo tipo altrimenti non funziona l'hovering
+          type: details?.types?.[0]?.type?.name || '', 
           sprite: details?.sprites?.front_default ||
                   `https://img.pokemondb.net/sprites/home/normal/${name.toLowerCase()}.png`,
           types: details?.types?.map(t => t.type.name).join(' / ') || ''
@@ -153,49 +155,49 @@ function PokemonList() {
 
   return (
     <div className="">
-      <header className="App-header">
-        <form className="flex items-center justify-center my-8" onSubmit={handleSearch}>
-          <input
-            className="w-72 px-4 py-2 rounded-l-full border-2 border-gray-300 focus:border-yellow-400 focus:outline-none"
-            type="text"
-            placeholder="Cerca Pokémon..."
-            value={search}
-            onChange={e => setSearch(e.target.value)}
-          />
-          <button
-            className="bg-yellow-400 text-red-700 px-6 py-2 rounded-r-full font-bold hover:bg-red-600 hover:text-white transition"
-            type="submit"
-          >
-            Cerca
-          </button>
-        </form>
-        {searchError && <div className="custom-error">{searchError}</div>}
-        <PokemonGrid
-          pokemonList={pokemonToShow}
-          loading={loading}
-          onPokemonClick={name => navigate(`/pokemon/${name}`)}
-        />
-        {loading && <Loader />}
-        {search.trim() === '' && totalPages > 1 && (
-          <div style={{ marginTop: 16 }}>
-            <button
-              onClick={() => setPage(p => Math.max(1, p - 1))}
-              disabled={page === 1}
-              style={{ marginRight: 8 }}
-            >
-              &lt; Prev
-            </button>
-            Pagina {page} di {totalPages}
-            <button
-              onClick={() => setPage(p => Math.min(totalPages, p + 1))}
-              disabled={page === totalPages}
-              style={{ marginLeft: 8 }}
-            >
-              Next &gt;
-            </button>
+      <Header />
+      <main className="pt-12">
+        <header className="App-header">
+          <div className="flex items-center justify-center my-8">
+            <Input
+              type="text"
+              placeholder="Cerca Pokémon..."
+              value={search}
+              onChange={e => {
+                setSearch(e.target.value);         
+                debouncedSetSearch(e.target.value); 
+              }}
+              name="search"
+            />
           </div>
-        )}
-      </header>
+          {searchError && <div className="custom-error">{searchError}</div>}
+          <PokemonGrid
+            pokemonList={pokemonToShow}
+            loading={loading}
+            onPokemonClick={name => navigate(`/pokemon/${name}`)}
+          />
+          {loading && <Loader />}
+          {search.trim() === '' && totalPages > 1 && (
+            <div style={{ marginTop: 16 }}>
+              <button
+                onClick={() => setPage(p => Math.max(1, p - 1))}
+                disabled={page === 1}
+                style={{ marginRight: 8 }}
+              >
+                &lt; Prev
+              </button>
+              Pagina {page} di {totalPages}
+              <button
+                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                disabled={page === totalPages}
+                style={{ marginLeft: 8 }}
+              >
+                Next &gt;
+              </button>
+            </div>
+          )}
+        </header>
+      </main>
     </div>
   );
 }

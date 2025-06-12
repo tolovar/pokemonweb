@@ -19,20 +19,22 @@ function App() {
         <div className="min-h-screen bg-gradient-to-b from-red-600 via-red-400 via-70% to-blue-700">
           <Header />
           <Toaster position="top-center" />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/pokemon" element={<PokemonList />} />
-            <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
-            <Route path="/pokemon-team" element={
-              <PrivateRoute>
-                <PokemonTeam />
-              </PrivateRoute>
-            } />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+          <main className="pt-12">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/pokemon" element={<PokemonList />} />
+              <Route path="/pokemon/:name" element={<PokemonDetailWrapper />} />
+              <Route path="/pokemon-team" element={
+                <PrivateRoute>
+                  <PokemonTeam />
+                </PrivateRoute>
+              } />
+              <Route path="*" element={<Navigate to="/" />} />
+            </Routes>
+          </main>
         </div>
       </Router>
     </AuthProvider>
