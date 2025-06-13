@@ -16,3 +16,842 @@ INFO:werkzeug:[33mPress CTRL+C to quit[0m
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 610-017-627
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:39:12] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:39:12] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:39:12] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:39:36] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:44:47] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:44:50] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:44:51] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:12] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:19] "OPTIONS /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:20] "[31m[1mPOST /api/login HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:52] "OPTIONS /api/register HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:53] "[35m[1mPOST /api/register HTTP/1.1[0m" 201 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:56] "OPTIONS /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:56] "POST /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:56] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:51:57] "GET /api/team HTTP/1.1" 200 -
+ERROR:root:Unhandled Exception: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\routes\pokemon.py", line 28, in add_pokemon_to_team
+    db.session.commit()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\scoping.py", line 599, in commit
+    return self._proxied.commit()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:52:10] "[35m[1mPOST /api/team HTTP/1.1[0m" 500 -
+ERROR:root:Unhandled Exception: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\routes\pokemon.py", line 28, in add_pokemon_to_team
+    db.session.commit()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\scoping.py", line 599, in commit
+    return self._proxied.commit()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:52:14] "[35m[1mPOST /api/team HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:52:17] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:52:17] "GET /api/team HTTP/1.1" 200 -
+ERROR:root:Unhandled Exception: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\routes\pokemon.py", line 28, in add_pokemon_to_team
+    db.session.commit()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\scoping.py", line 599, in commit
+    return self._proxied.commit()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:52:31] "[35m[1mPOST /api/team HTTP/1.1[0m" 500 -
+ERROR:root:Unhandled Exception: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\routes\pokemon.py", line 28, in add_pokemon_to_team
+    db.session.commit()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\scoping.py", line 599, in commit
+    return self._proxied.commit()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:52:31] "[35m[1mPOST /api/team HTTP/1.1[0m" 500 -
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:52:43] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:59:18] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:59:18] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:59:26] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:59:26] "GET /api/team HTTP/1.1" 200 -
+ERROR:root:Unhandled Exception: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\routes\pokemon.py", line 28, in add_pokemon_to_team
+    db.session.commit()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\scoping.py", line 599, in commit
+    return self._proxied.commit()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 11:59:42] "[35m[1mPOST /api/team HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:02:11] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+WARNING:root:404: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:02:11] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:02:22] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:02:22] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:05:36] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:05:37] "GET /api/team HTTP/1.1" 200 -
+ERROR:root:Unhandled Exception: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+Traceback (most recent call last):
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\flask_jwt_extended\view_decorators.py", line 170, in decorator
+    return current_app.ensure_sync(fn)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\routes\pokemon.py", line 28, in add_pokemon_to_team
+    db.session.commit()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\scoping.py", line 599, in commit
+    return self._proxied.commit()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2032, in commit
+    trans.commit(_to_root=True)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "<string>", line 2, in commit
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1313, in commit
+    self._prepare_impl()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "<string>", line 2, in _prepare_impl
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 1288, in _prepare_impl
+    self.session.flush()
+    ~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4345, in flush
+    self._flush(objects)
+    ~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4480, in _flush
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\session.py", line 4441, in _flush
+    flush_context.execute()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
+    rec.execute(self)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
+    util.preloaded.orm_persistence.save_obj(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.mapper,
+        ^^^^^^^^^^^^
+        uow.states_for_mapper_hierarchy(self.mapper, False, False),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        uow,
+        ^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\persistence.py", line 76, in save_obj
+    for table, mapper in base_mapper._sorted_tables.items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1338, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4060, in _sorted_tables
+    sorted_ = sql_util.sort_tables(
+        table_to_mapper,
+        skip_fn=skip,
+        extra_dependencies=extra_dependencies,
+    )
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1316, in sort_tables
+    for (t, fkcs) in sort_tables_and_constraints(
+                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        tables,
+        ^^^^^^^
+    ...<2 lines>...
+        _warn_for_cycles=True,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1386, in sort_tables_and_constraints
+    filtered = filter_fn(fkc)
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\ddl.py", line 1306, in _skip_fn
+    if fixed_skip_fn(fk):
+       ~~~~~~~~~~~~~^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\orm\mapper.py", line 4043, in skip
+    dep = table_to_mapper.get(fk.column.table)
+                              ^^^^^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\util\langhelpers.py", line 1226, in __get__
+    obj.__dict__[self.__name__] = result = self.fget(obj)
+                                           ~~~~~~~~~^^^^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3199, in column
+    return self._resolve_column()
+           ~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\AlessioLongo\OneDrive - ITS Angelo Rizzoli\Documenti\Workspace\pokemonweb\backend\venv\Lib\site-packages\sqlalchemy\sql\schema.py", line 3222, in _resolve_column
+    raise exc.NoReferencedTableError(
+    ...<5 lines>...
+    )
+sqlalchemy.exc.NoReferencedTableError: Foreign key associated with column 'pokemon_team.user_id' could not find table 'user' with which to generate a foreign key to target column 'id'
+
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:05:43] "[35m[1mPOST /api/team HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:08:25] "[31m[1mPOST /api/team HTTP/1.1[0m" 401 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:18:09] "[31m[1mGET /api/team HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:18:09] "[31m[1mGET /api/team HTTP/1.1[0m" 401 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:18:13] "OPTIONS /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:18:14] "POST /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:18:14] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:18:14] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:21:09] "OPTIONS /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:21:10] "POST /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:21:10] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:21:11] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:22:15] "[31m[1mGET /api/team HTTP/1.1[0m" 422 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\auth.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:26:56] "OPTIONS /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:26:57] "POST /api/login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:26:57] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:26:57] "GET /api/team HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [13/Jun/2025 12:27:11] "[35m[1mPOST /api/team HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\routes\\team.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 662-395-635
+INFO:werkzeug: * Detected change in 'C:\\Users\\AlessioLongo\\OneDrive - ITS Angelo Rizzoli\\Documenti\\Workspace\\pokemonweb\\backend\\app.py', reloading
+INFO:werkzeug: * Restarting with stat

@@ -1,0 +1,203 @@
+[33mcommit 684b69cd45cb3efaf03c26825fc62dc7fc1b4bcb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu Jun 12 12:35:29 2025 +0200
+
+    fix: better header, implemented correctly
+
+[33mcommit 80fba41d30e50b016ec00ab36ffce32cc754314a[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu Jun 12 00:50:38 2025 +0200
+
+    fix: register button
+
+[33mcommit 4bd371905c2e435fd6bccb3adfe8c4cc68e5ea70[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu Jun 12 00:40:07 2025 +0200
+
+    fix: header and assets
+
+[33mcommit 6d42d1502cf7b6122e0b2966e2e8790e71eb1703[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 11 23:02:23 2025 +0200
+
+    fix: imports
+
+[33mcommit bda8cb34ad24596286abf3a8c2438296211bf169[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 11 21:13:10 2025 +0200
+
+    chore: more robust backend and more coherent routes
+
+[33mcommit fb6a79a35921bb6c58d08a52d486870298252fb2[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 11 19:18:20 2025 +0200
+
+    chore: tailwind configuration and implementation
+
+[33mcommit 79eb7f473ddcc36175a27c7f13326f00902ec648[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 11 13:30:11 2025 +0200
+
+    chore: implemented mailgun
+
+[33mcommit 7e547c2aeaa9429c543f447a3a44380695904a4f[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 11 13:29:18 2025 +0200
+
+    chore: mailgun implemented
+
+[33mcommit c6cf765dedc5645bd14709c2f557395e5be15bb4[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 4 18:04:02 2025 +0200
+
+    fix: PokemonGrid
+
+[33mcommit c0a03308c2fb411ef777fa74df2c633123478a4e[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 4 17:20:43 2025 +0200
+
+    fix: PokemonTeam buttons
+
+[33mcommit a1d662f4d63efe8e687d248bc01114586f6c8939[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed Jun 4 16:07:52 2025 +0200
+
+    chore: dynamic PokemonTeam page, improved UI and UI, especially on login and registration
+
+[33mcommit 9f2252bb8f89d97d26bf6826aa08416fc31a42ad[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 30 17:15:54 2025 +0200
+
+    fix: login and registration, blueprints
+
+[33mcommit 74b19f5a898d7de37a36d9a8cd84bd4c38c21452[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 30 15:28:05 2025 +0200
+
+    chore: improved research settings in PokemonList and optimization
+
+[33mcommit dd597e841b367ef905e4079d516ee60e87904962[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 30 15:19:50 2025 +0200
+
+    chore: improved research settings in PokemonList
+
+[33mcommit badc05c44467e6ff1113beba4bd677c7988ff272[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 30 13:15:58 2025 +0200
+
+    fix: login page
+
+[33mcommit 15a204f121ee7b88a517258f38c05ecc33320c7f[m
+Merge: 72e16dc3 186e6054
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 30 13:12:11 2025 +0200
+
+    Merge branch 'main' of https://github.com/tolovar/pokemon
+
+[33mcommit 72e16dc35b991fbcae2bc8c483a531dd4bbb6c37[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 30 12:43:24 2025 +0200
+
+    chore: login and register pages. connected to a PostgreSQL database.
+
+[33mcommit 186e60547eca4134b31e7ba0460c5e3844bf1df1[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu May 29 18:10:26 2025 +0200
+
+    chore: registrazione and login/logout implementation through query
+
+[33mcommit 91e52f7a7c24ee95f796c1ad935d4d303affd712[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu May 29 18:08:35 2025 +0200
+
+    fix: now the backend is running on pure Node.
+
+[33mcommit 81002ba70084cc3f0747f446b29fbff21d32e3e3[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu May 29 17:46:58 2025 +0200
+
+    chore: improved registration and login/logout pages with validation.
+
+[33mcommit 6e7cc67970d7cb81355444ebd9ca62123cb119fa[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu May 29 17:21:54 2025 +0200
+
+    chore: more coherent folders
+
+[33mcommit 2be99ef4fa8f51226d6eb46794a73ca32cc87866[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Thu May 29 16:41:43 2025 +0200
+
+    chore: added backend
+
+[33mcommit aaf9089071de2942938fbd88ce1abc2a0a7af5f2[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed May 28 18:06:24 2025 +0200
+
+    chore: implemented login and upgraded PokemonTeam
+
+[33mcommit d1be4a21e95694981b5ad8a191619658ccf9e186[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed May 28 16:57:59 2025 +0200
+
+    chore: Login and PokemonTeam tabs created.
+    Started backend development on database.
+
+[33mcommit cdf5e714479c2418c51c8396866a32b23ccb838d[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed May 28 15:19:10 2025 +0200
+
+    chore: imprioved home page and better pathing.
+
+[33mcommit 0d3689a73d5e992481d405fdf55dcb79414c2cad[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed May 28 13:23:28 2025 +0200
+
+    fix: now the Flask request returns a JSON correctly.
+    Added an Home page.
+    Upgraded CSS file and Routes.
+
+[33mcommit 8575ce1a2e80f73726896185df3975d035ea4e87[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Wed May 28 09:56:55 2025 +0200
+
+     fix: more coherent code now allow to fetch all resources correctly
+
+[33mcommit 956fb3572bfac4755227461b93e13bfc0227c291[m
+Author: Manolo Battista <manolo@arkemis.it>
+Date:   Tue May 27 11:25:08 2025 +0200
+
+    chore: ignore build folder
+
+[33mcommit 48ae242806fd07f0d6fbdc299b030cbd627ab3a7[m
+Author: Manolo Battista <manolo@arkemis.it>
+Date:   Tue May 27 11:21:22 2025 +0200
+
+    setup gh-pages
+
+[33mcommit 603b621e13157e4c8405a25f276ca5bbd2d71fc5[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Tue May 27 11:17:17 2025 +0200
+
+    chore: add helpers
+
+[33mcommit 776c81480ad6806622bb9f387174ec50bdf58c46[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 23 16:22:29 2025 +0200
+
+    Corretto caricamento delle ricerche.
+    Migliorata la pagina Details.
+    Implementati elementi CSS.
+
+[33mcommit 64f8acef543404b3183afb19ca61022813a574c6[m
+Author: Manolo Battista <manolo@arkemis.it>
+Date:   Fri May 23 14:56:54 2025 +0200
+
+    fix: react-scripts
+
+[33mcommit 4fc8cfd1ec12729de3eb400b899c26b6234e0385[m
+Author: tolovar <alessio.longo@itsrizzoli.it>
+Date:   Fri May 23 14:27:26 2025 +0200
+
+    initial commit

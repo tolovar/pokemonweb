@@ -22,10 +22,10 @@ export function AuthProvider({ children }) {
 
   // funzione per disconnettere l'utente
   const logout = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
     setUser(null);
     setIsAuthenticated(false);
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
   };
 
   // funzione per effettuare il login e salvare il token jwt nel localstorage
@@ -36,12 +36,13 @@ export function AuthProvider({ children }) {
       body: JSON.stringify({ username, password }),
     });
     const data = await res.json();
-    if (res.ok && data.token) {
-      // salvo il token jwt nel localstorage per mantenerlo tra le pagine
-      localStorage.setItem('token', data.token);
-      return data.token;
+    if (res.ok && data.access_token) { 
+      // salvo il token nel localStorage
+      localStorage.setItem('token', data.access_token);
+      console.log('Token JWT salvato:', data.access_token);
+      return data.access_token;
     } else {
-      throw new Error(data.message || 'login fallito');
+      throw new Error(data.error || data.message || 'login fallito');
     }
   };
 

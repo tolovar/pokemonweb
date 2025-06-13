@@ -8,12 +8,16 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from flask_migrate import Migrate
 import logging
+from werkzeug.exceptions import HTTPException
+import traceback
+from datetime import timedelta
 
 from backend.models import db
 from backend.routes.auth import auth_bp
 from backend.routes.users import users_bp
 from backend.routes.pokemon import pokemon_bp
 from backend.routes.admin import admin_bp
+from backend.routes.team import team_bp  
 
 load_dotenv()
 
@@ -32,6 +36,8 @@ app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT', 587))
 app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS', 'True') == 'True'
 app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+# timer di 8 ore per il token 
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=8) 
 
 db.init_app(app)
 jwt = JWTManager(app)
@@ -39,16 +45,17 @@ mail = Mail(app)
 limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
 migrate = Migrate(app, db)
 
+# logging
+logging.basicConfig(filename='app.log', level=logging.INFO)
+
 # registra blueprint
 app.register_blueprint(auth_bp)
 app.register_blueprint(users_bp)
 app.register_blueprint(pokemon_bp)
 app.register_blueprint(admin_bp)
+app.register_blueprint(team_bp)
 
-# logging
-logging.basicConfig(filename='app.log', level=logging.INFO)
-
-# gestisco gli errori
+# handler errori personalizzati
 @app.errorhandler(400)
 def bad_request(error):
     logging.warning(f"400: {error}")
@@ -64,15 +71,26 @@ def not_found(error):
     logging.warning(f"404: {error}")
     return jsonify({"success": False, "error": "Not found"}), 404
 
+@app.errorhandler(405)
+def method_not_allowed(error):
+    logging.warning(f"405: {error}")
+    return jsonify({"success": False, "error": "Method not allowed"}), 405
+
 @app.errorhandler(409)
 def conflict(error):
     logging.warning(f"409: {error}")
     return jsonify({"success": False, "error": "Conflict"}), 409
 
-@app.errorhandler(500)
-def internal_error(error):
-    logging.error(f"500: {error}")
-    return jsonify({"success": False, "error": "Internal server error"}), 500
+# handler globale per errori non previsti
+@app.errorhandler(Exception)
+def handle_exception(e):
+    from werkzeug.exceptions import HTTPException
+    import traceback
+    if isinstance(e, HTTPException):
+        return jsonify({"success": False, "error": e.description}), e.code
+    print("Errore globale:", e)
+    print(traceback.format_exc())
+    return jsonify({"success": False, "error": "Errore interno inatteso"}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)

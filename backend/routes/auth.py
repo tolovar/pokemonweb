@@ -55,9 +55,12 @@ def login():
         # invio mail di recupero solo se l'utente esiste
         if user:
             send_recovery_mail_mailgun(user.email, user.username)
-        return jsonify({'success': False, 'error': 'Credenziali errate.'}), 401
-    access_token = create_access_token(identity=user.id)
-    return jsonify({'success': True, 'token': access_token}), 200
+        return jsonify({'success': False, 'error': 'Credenziali errate.'}), 401    
+    # forzo il formato come stringa per evitare problemi con jwt
+    # (accetta solo stringhe come identity per il campo "sub")
+    access_token = create_access_token(identity=str(user.id))
+    refresh_token = create_access_token(identity=str(user.id))
+    return jsonify({'success': True, 'access_token': access_token}), 200
 
 @auth_bp.route('/recover', methods=['POST'])
 def recover_password():

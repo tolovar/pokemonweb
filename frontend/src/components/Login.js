@@ -45,7 +45,7 @@ function Login() {
       }
       const data = await res.json();
       // salvo il token JWT (es: localStorage)
-      localStorage.setItem('token', data.token);
+      localStorage.setItem('token', data.access_token); 
       login({ id: username, name: username });
       // reindirizzo l'utente alla pagina personale 
       navigate('/pokemon-team');

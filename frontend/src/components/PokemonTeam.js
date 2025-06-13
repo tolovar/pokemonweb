@@ -25,21 +25,38 @@ function PokemonTeam() {
     async function fetchTeam() {
       if (isAuthenticated) {
         setLoading(true);
-        const res = await apiFetch('/api/team');
-        const data = await res.json ? await res.json() : res;
-        const teamWithSprites = await Promise.all(
-          data.map(async (p) => {
-            // recupero lo sprite dalla pokeapi
-            const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${p.name.toLowerCase()}`);
-            const pokeData = await pokeRes.json();
-            return {
-              ...p,
-              sprite: pokeData.sprites.front_default,
-            };
-          })
-        );
-        setTeam(teamWithSprites);
-        setLoading(false);
+        try {
+          // uso il wrapper che lancia già in caso di errore
+          const data = await apiFetch('/api/team');
+          const teamWithSprites = await Promise.all(
+            data.map(async (p) => {
+              // recupero lo sprite del pokémon da pokeapi
+              const pokeRes = await fetch(`https://pokeapi.co/api/v2/pokemon/${p.name.toLowerCase()}`);
+              const pokeData = await pokeRes.json();
+              return {
+                ...p,
+                sprite: pokeData.sprites.front_default,
+              };
+            })
+          );
+          setTeam(teamWithSprites);
+        } catch (error) {
+          console.error('dettaglio errore:', error);
+          // provo a capire se è un errore di autenticazione
+          if (
+            error.message.includes('401') ||
+            error.message.includes('Sessione scaduta') ||
+            error.message.includes('Not enough segments')
+          ) {
+            logout();
+            navigate('/login');
+          } else {
+            alert('errore nel caricamento della squadra: ' + error.message);
+          }
+        }
+        finally {
+          setLoading(false);
+        }
       } else {
         // se l'utente non è loggato, lo reindirizzo al login
         navigate('/login');

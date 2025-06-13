@@ -6,13 +6,15 @@ import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import Input from './common/Input';
 import Header from './Header';
+import { useNavigate } from 'react-router-dom';
 
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, logout } = useContext(AuthContext);
   const [addSuccess, setAddSuccess] = useState(null);
+  const navigate = useNavigate();
 
   // quando il componente viene montato o il nome cambia, scarico i dettagli del pokémon
   useEffect(() => {
@@ -31,11 +33,20 @@ function PokemonDetail({ name }) {
       await apiFetch('/api/team', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name }),
+        body: JSON.stringify({ name: details.name }) 
       });
       setAddSuccess('Pokémon aggiunto alla tua squadra!');
     } catch (error) {
-      setAddSuccess('Errore durante l\'aggiunta del Pokémon');
+      if (
+        error.message.includes('401') ||
+        error.message.includes('Sessione scaduta') ||
+        error.message.includes('Not enough segments')
+      ) {
+        logout();
+        navigate('/login');
+      } else {
+        setAddSuccess('Errore durante l\'aggiunta del Pokémon');
+      }
     }
   };
 
