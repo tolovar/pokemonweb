@@ -64,7 +64,7 @@ function Login() {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5000/api/recover', { // qui devo mettere l'url del backend
+      const res = await fetch('http://localhost:5000/api/recover', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: recoveryEmail }),
@@ -73,8 +73,8 @@ function Login() {
         const data = await res.json();
         throw new Error(data.message || 'Errore nel recupero password');
       }
-      // qui devo implementare l'invio dell'email di recupero
-      // per ora simulo l'invio con un alert
+      // si potrebbe implementare l'invio dell'email di recupero
+      // che per ora simulo l'invio con un alert
       alert('Email di recupero inviata!');
       setShowRecovery(false);
     } catch (err) {

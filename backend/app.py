@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, Response
 import os
 from dotenv import load_dotenv
 from flask_cors import CORS
@@ -57,39 +57,38 @@ app.register_blueprint(team_bp)
 
 # handler errori personalizzati
 @app.errorhandler(400)
-def bad_request(error):
+def bad_request(error) -> tuple[Response, int]:
     logging.warning(f"400: {error}")
     return jsonify({"success": False, "error": "Bad request"}), 400
 
 @app.errorhandler(401)
-def unauthorized(error):
+def unauthorized(error) -> tuple[Response, int]:
     logging.warning(f"401: {error}")
     return jsonify({"success": False, "error": "Unauthorized"}), 401
 
 @app.errorhandler(404)
-def not_found(error):
+def not_found(error) -> tuple[Response, int]:
     logging.warning(f"404: {error}")
     return jsonify({"success": False, "error": "Not found"}), 404
 
 @app.errorhandler(405)
-def method_not_allowed(error):
+def method_not_allowed(error) -> tuple[Response, int]:
     logging.warning(f"405: {error}")
     return jsonify({"success": False, "error": "Method not allowed"}), 405
 
 @app.errorhandler(409)
-def conflict(error):
+def conflict(error) -> tuple[Response, int]:
     logging.warning(f"409: {error}")
     return jsonify({"success": False, "error": "Conflict"}), 409
 
-# handler globale per errori non previsti
+# Global error handler
 @app.errorhandler(Exception)
-def handle_exception(e):
-    from werkzeug.exceptions import HTTPException
-    import traceback
+def handle_exception(e) -> tuple[Response, int]:
     if isinstance(e, HTTPException):
-        return jsonify({"success": False, "error": e.description}), e.code
-    print("Errore globale:", e)
-    print(traceback.format_exc())
+        code = e.code if e.code is not None else 500
+        logging.error(f"HTTPException: {e.description} (code: {code})")
+        return jsonify({"success": False, "error": e.description}), code
+    logging.error(f"Unhandled Exception: {e}\n{traceback.format_exc()}")
     return jsonify({"success": False, "error": "Errore interno inatteso"}), 500
 
 if __name__ == '__main__':

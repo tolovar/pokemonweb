@@ -23,7 +23,9 @@ def add_pokemon_to_team():
     existing = PokemonTeam.query.filter_by(user_id=user_id, name=name).first()
     if existing:
         return jsonify({"success": False, "message": "Pokémon già presente in squadra"}), 409
-    new_pokemon = PokemonTeam(user_id=user_id, name=name)
+    new_pokemon = PokemonTeam()
+    new_pokemon.user_id = user_id
+    new_pokemon.name = name
     db.session.add(new_pokemon)
     db.session.commit()
     return jsonify({"success": True, "message": "Pokémon aggiunto", "pokemon": {"name": name}}), 201

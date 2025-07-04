@@ -1,7 +1,8 @@
 from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from backend.models import TeamPokemon
-from app import db
+from backend.models import db
+import logging
+import traceback
 
 team_bp = Blueprint('team', __name__, url_prefix='/api')
 
@@ -24,7 +25,7 @@ class TeamPokemon(db.Model):
 def get_team():
     try:
         user_id = get_jwt_identity()
-        print("user_id:", user_id)  # log per debug
+        logging.info(f"Recuperando il team di: {user_id}")
 
         # query per recuperare la squadra
         team = TeamPokemon.query.filter_by(user_id=user_id).all()
@@ -32,9 +33,7 @@ def get_team():
 
         return jsonify(team_serialized), 200
     except Exception as e:
-        import traceback
-        print("Errore in get_team:", e)
-        print(traceback.format_exc())
+        logging.error(f"Errore in get_team: {e}\n{traceback.format_exc()}")
         return jsonify({"success": False, "error": "Errore interno"}), 500
 
 # aggiungo un pokémon alla squadra 
@@ -44,8 +43,7 @@ def add_to_team():
     try:
         user_id = get_jwt_identity()
         data = request.get_json()
-        print("user_id:", user_id, "data:", data)  # log per debug
-
+        
         # validazione input
         if not data or 'name' not in data or not isinstance(data['name'], str):
             return jsonify({"success": False, "error": "Nome Pokémon mancante o non valido"}), 400
@@ -65,18 +63,18 @@ def add_to_team():
             return jsonify({"success": False, "error": "Questo Pokémon è già nella tua squadra"}), 400
 
         # salvo sul db
-        new_pokemon = TeamPokemon(user_id=user_id, name=pokemon_name)
+        new_pokemon = TeamPokemon()
+        new_pokemon.user_id = user_id
+        new_pokemon.name = pokemon_name
         db.session.add(new_pokemon)
         db.session.commit()
 
-        print(f"Aggiunto {pokemon_name} alla squadra di {user_id}")
+        logging.info(f"Aggiunto {pokemon_name} alla squadra di {user_id}")
 
         return jsonify({"success": True, "message": f"Pokémon '{pokemon_name}' aggiunto"}), 201
 
     except Exception as e:
-        import traceback
-        print("Errore in add_to_team:", e)
-        print(traceback.format_exc())
+        logging.error(f"Errore in add_to_team: {e}\n{traceback.format_exc()}")
         return jsonify({"success": False, "error": "Errore interno"}), 500
 
 # rimuovo un pokémon dalla squadra 
@@ -91,13 +89,11 @@ def remove_from_team(pokemon_id):
 
         db.session.delete(pokemon)
         db.session.commit()
-        print(f"Rimosso Pokémon id={pokemon_id} dalla squadra di {user_id}")
+        logging.info(f"Rimosso Pokémon id={pokemon_id} dalla squadra di {user_id}")
 
         return jsonify({"success": True, "message": "Pokémon rimosso dalla squadra"}), 200
     except Exception as e:
-        import traceback
-        print("Errore in remove_from_team:", e)
-        print(traceback.format_exc())
+        logging.error(f"Errore in remove_from_team: {e}\n{traceback.format_exc()}")
         return jsonify({"success": False, "error": "Errore interno"}), 500
 
 # svuoto la squadra 
@@ -108,12 +104,10 @@ def clear_team():
         user_id = get_jwt_identity()
         deleted = TeamPokemon.query.filter_by(user_id=user_id).delete()
         db.session.commit()
-        print(f"Svuotata la squadra di {user_id} ({deleted} Pokémon rimossi)")
+        logging.info(f"Squadra di {user_id} svuotata ({deleted} Pokémon rimossi)")
         return jsonify({"success": True, "message": "Squadra svuotata"}), 200
     except Exception as e:
-        import traceback
-        print("Errore in clear_team:", e)
-        print(traceback.format_exc())
+        logging.error(f"Errore in clear_team: {e}\n{traceback.format_exc()}")
         return jsonify({"success": False, "error": "Errore interno"}), 500
 
 # recupero un singolo pokémon dalla squadra 
@@ -127,7 +121,5 @@ def get_team_pokemon(pokemon_id):
             return jsonify({"success": False, "error": "Pokémon non trovato nella tua squadra"}), 404
         return jsonify(pokemon.to_dict()), 200
     except Exception as e:
-        import traceback
-        print("Errore in get_team_pokemon:", e)
-        print(traceback.format_exc())
+        logging.error(f"Errore in get_team_pokemon: {e}\n{traceback.format_exc()}")
         return jsonify({"success": False, "error": "Errore interno"}), 500
