@@ -1,4 +1,5 @@
 from backend.models import db
+from marshmallow import Schema, fields, validate
 
 class User(db.Model):
     __tablename__ = 'users'  # plurale per convenzione, occhio al resto del codice!
@@ -14,3 +15,8 @@ class User(db.Model):
     last_logout = db.Column(db.DateTime, nullable=True)
     is_active = db.Column(db.Boolean, default=True)
     is_verified = db.Column(db.Boolean, default=False)
+    
+class UserRegisterSchema(Schema):
+    username = fields.Str(required=True, validate=validate.Length(min=3, max=32))
+    email = fields.Email(required=True)
+    password = fields.Str(required=True, validate=validate.Length(min=6))

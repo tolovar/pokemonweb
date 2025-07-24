@@ -1,10 +1,9 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
-import "./Auth.css";
-import { typeColorClass } from '../utils/typeColorClass';
-import Loader from './common/Loader';
+import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import Input from './common/Input';
+import Loader from './common/Loader';
+import { AuthContext } from '../context/AuthContext';
+import { toast } from 'react-hot-toast';
 import Header from "./Header";
 
 function Login() {
@@ -14,11 +13,9 @@ function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [showRecovery, setShowRecovery] = useState(false);
   const [recoveryEmail, setRecoveryEmail] = useState('');
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // setto i campi del form come vuoti per pulirli quando ricarico la pagina
   useEffect(() => {
     setUsername('');
     setPassword('');
@@ -26,9 +23,8 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError('');
     if (!username || !password) {
-      setError('Inserisci utente e password');
+      toast.error('Inserisci utente e password');
       return;
     }
     setLoading(true);
@@ -41,44 +37,19 @@ function Login() {
       // validazione della risposta
       if (!res.ok) {
         const data = await res.json();
+        toast.error(data.message || 'Errore di autenticazione');
         throw new Error(data.message || 'Errore di autenticazione');
       }
       const data = await res.json();
-      // salvo il token JWT (es: localStorage)
       localStorage.setItem('token', data.access_token); 
       login({ id: username, name: username });
-      // reindirizzo l'utente alla pagina personale 
+      // reindirizzo l'utente alla pagina personale
+      toast.success('Login effettuato!');
       navigate('/pokemon-team');
     } catch (err) {
-      setError(err.message);
+      toast.error(err.message);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleRecovery = async (e) => {
-    e.preventDefault();
-    setError('');
-    if (!recoveryEmail || !/\S+@\S+\.\S+/.test(recoveryEmail)) {
-      setError('Inserisci una email valida');
-      return;
-    }
-    try {
-      const res = await fetch('http://localhost:5000/api/recover', { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: recoveryEmail }),
-      });
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.message || 'Errore nel recupero password');
-      }
-      // si potrebbe implementare l'invio dell'email di recupero
-      // che per ora simulo l'invio con un alert
-      alert('Email di recupero inviata!');
-      setShowRecovery(false);
-    } catch (err) {
-      setError(err.message);
     }
   };
 
@@ -88,16 +59,18 @@ function Login() {
       <div className="flex items-center justify-center min-h-[70vh] pt-12">
         <form className="bg-white/90 rounded-2xl shadow-2xl p-8 w-full max-w-md space-y-6 border-4 border-red-500" onSubmit={handleLogin}>
           <h2 className="text-2xl font-bold text-center text-red-600">Accedi</h2>
-          {error && <div className="text-red-600 text-center">{error}</div>}
+          <label htmlFor="username" className="sr-only">Username</label>
           <Input
+            id="username"
             type="text"
             placeholder="Username"
             value={username}
             onChange={e => setUsername(e.target.value)}
             name="username"
           />
+          <label htmlFor="password" className="sr-only">Password</label>
           <Input
-            className="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-yellow-400 transition"
+            id="password"
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}

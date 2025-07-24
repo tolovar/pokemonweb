@@ -10,6 +10,8 @@ function Input({ type, placeholder, value, onChange, name, id, ...rest }) {
       onChange={onChange}
       name={name}
       id={id}
+      aria-label={placeholder || name}
+      autoComplete={name}
       {...rest}
     />
   );

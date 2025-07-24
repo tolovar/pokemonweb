@@ -11,6 +11,7 @@ import logging
 from werkzeug.exceptions import HTTPException
 import traceback
 from datetime import timedelta
+import redis
 
 from backend.models import db
 from backend.routes.auth import auth_bp
@@ -18,6 +19,7 @@ from backend.routes.users import users_bp
 from backend.routes.pokemon import pokemon_bp
 from backend.routes.admin import admin_bp
 from backend.routes.team import team_bp  
+from backend.routes.error_handlers import register_error_handlers
 
 load_dotenv()
 
@@ -42,11 +44,19 @@ app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=8)
 db.init_app(app)
 jwt = JWTManager(app)
 mail = Mail(app)
-limiter = Limiter(get_remote_address, app=app, default_limits=["10 per minute"])
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    storage_uri="redis://localhost:6379"  # Assicurati di avere Redis attivo
+)
 migrate = Migrate(app, db)
 
 # logging
-logging.basicConfig(filename='app.log', level=logging.INFO)
+logging.basicConfig(
+    filename='app.log',
+    level=logging.INFO,
+    format='%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s'
+)
 
 # registra blueprint
 app.register_blueprint(auth_bp)
@@ -55,6 +65,9 @@ app.register_blueprint(pokemon_bp)
 app.register_blueprint(admin_bp)
 app.register_blueprint(team_bp)
 
+# registro error handlers così da non doverli ripetere in ogni blueprint
+# questo permette di centralizzare la gestione degli errori
+register_error_handlers(app)
 # handler errori personalizzati
 @app.errorhandler(400)
 def bad_request(error) -> tuple[Response, int]:
@@ -81,7 +94,7 @@ def conflict(error) -> tuple[Response, int]:
     logging.warning(f"409: {error}")
     return jsonify({"success": False, "error": "Conflict"}), 409
 
-# Global error handler
+# error handler globale
 @app.errorhandler(Exception)
 def handle_exception(e) -> tuple[Response, int]:
     if isinstance(e, HTTPException):

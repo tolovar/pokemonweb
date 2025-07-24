@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify, current_app
 from werkzeug.security import generate_password_hash, check_password_hash
-from backend.models.users import User
+from backend.models.users import User, UserRegisterSchema
 from backend.models import db
 from flask_jwt_extended import create_access_token
 from flask_mail import Message
@@ -37,10 +37,12 @@ def health_check():
 # logica per la registrazione 
 @auth_bp.route('/register', methods=['POST'])
 def register():
+    schema = UserRegisterSchema()
+    data = request.get_json()
+    errors = schema.validate(data)
+    if errors:
+        return jsonify({"error": "Validation error", "details": errors}), 400
     try:
-        data = request.get_json()
-        if not data or 'username' not in data or 'email' not in data or 'password' not in data:
-            return jsonify({"success": False, "error": "Dati mancanti"}), 400
         if User.query.filter((User.username == data['username']) | (User.email == data['email'])).first():
             return jsonify({"success": False, "error": "Username o email già esistenti"}), 409
         user = User()

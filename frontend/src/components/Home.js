@@ -15,10 +15,6 @@ function Home() {
     navigate('/pokemon');
   };
 
-  const handleLogin = () => {
-    navigate('/login');
-  };
-
   // funzione per andare alla pagina della squadra
   const handleTeam = () => {
     navigate('/pokemon-team');
@@ -26,88 +22,64 @@ function Home() {
 
   return (
     <div
-      style={{
-        textAlign: 'center',
-        marginTop: '0px',
-        minHeight: '100vh',
-        backgroundImage: `url(/assets/Kanto_Map.png)`, // uso percorso assoluto perché fa riferimento ad assets
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-      }}
+      className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center"
+      style={{ backgroundImage: `url(/assets/Kanto_Map.png)` }}
     >
-      <h1
-        style={{
-          fontFamily: "'Luckiest Guy', cursive",
-          fontWeight: 'bold',
-          fontSize: '3.5rem',
-          marginBottom: '80px',
-          letterSpacing: '2px',
-          textTransform: 'uppercase',
-          textShadow: '2px 2px 0 #3b4cca, 4px 4px 0 #3b4cca',
-          color: '#ffcb05'
-        }}
-      >
-        Benvenuto, allenatore!
-      </h1>
-      <button
-        onClick={handleClick}
-        style={{
-          background: 'none',
-          outline: 'none',
-          borderRadius: '50%',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-          transition: 'transform 0.2s',
-          marginBottom: '20px',
-          border: 'none',
-          cursor: 'pointer',
-          padding: 0
-        }}
-      >
-        <img src="/assets/pokedex.gif" alt="Pokédex" style={{ width: '260px' }} /> {/* usa percorso assoluto! */}
-      </button>
-      {/* mostro il bottone della squadra se autenticato, altrimenti il login */}
-      {isAuthenticated ? (
+      {/* titolo e pokedex */}
+      <div className="bg-white/80 rounded-xl shadow-xl p-8 max-w-lg mx-auto mt-20">
+        {/* messaggio di benvenuto */}
+        <h1 className="font-[Luckiest_Guy,cursive] text-4xl text-yellow-500 drop-shadow-lg mb-6">
+          Benvenuto, allenatore!
+        </h1>
         <button
-          onClick={handleTeam}
-          style={{
-            marginTop: '30px',
-            padding: '12px 32px',
-            fontSize: '1.2rem',
-            fontWeight: 'bold',
-            background: '#ffcb05',
-            color: '#3b4cca',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            boxShadow: '0 2px 6px #0002'
-          }}
+          onClick={handleClick}
+          className="rounded-full shadow-lg hover:scale-105 transition-transform bg-gradient-to-r from-yellow-400 to-red-400 p-2"
         >
-          La mia squadra
+          <img src="/assets/pokedex.gif" alt="Pokédex" className="w-48" loading="lazy" />
         </button>
-      ) : (
-        <button
-          onClick={handleLogin}
-          style={{
-            marginTop: '30px',
-            padding: '12px 32px',
-            fontSize: '1.2rem',
-            fontWeight: 'bold',
-            background: '#3b4cca',
-            color: '#ffcb05',
-            border: 'none',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            boxShadow: '0 2px 6px #0002'
-          }}
-        >
-          Login
-        </button>
-      )}
-      {loading && <Loader />}
+        {/* mostro il bottone della squadra se autenticato, altrimenti il login */}
+        {isAuthenticated ? (
+          <button
+            onClick={handleTeam}
+            style={{
+              marginTop: '30px',
+              padding: '12px 32px',
+              fontSize: '1.2rem',
+              fontWeight: 'bold',
+              background: '#ffcb05',
+              color: '#3b4cca',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 6px #0002'
+            }}
+          >
+            La mia squadra
+          </button>
+        ) : (
+          <Link
+            to="/login"
+            style={{
+              marginTop: '30px',
+              padding: '12px 32px',
+              fontSize: '1.2rem',
+              fontWeight: 'bold',
+              background: '#3b4cca',
+              color: '#ffcb05',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              boxShadow: '0 2px 6px #0002',
+              display: 'inline-block',
+              textAlign: 'center',
+              textDecoration: 'none'
+            }}
+          >
+            Login
+          </Link>
+        )}
+        {loading && <Loader />}
+      </div>
     </div>
   );
 }

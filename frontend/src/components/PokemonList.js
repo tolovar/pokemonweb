@@ -28,7 +28,7 @@ function PokemonList() {
     setDebouncedSearch(value);
   }, 800, { trailing: true });
 
-  // scairco tutti i nomi dei Pokémon una sola volta
+  // scarico tutti i nomi dei Pokémon una sola volta
   useEffect(() => {
     const fetchAllPokemonNames = async () => {
       try {
@@ -85,7 +85,6 @@ function PokemonList() {
       setSearchError('Errore nella ricerca');
       setLoading(false);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [debouncedSearch, allPokemonNames]);
 
   // quando la barra è vuota, carico la lista di pokémon

@@ -19,7 +19,7 @@ function App() {
         <div className="min-h-screen bg-gradient-to-b from-red-600 via-red-400 via-70% to-blue-700">
           <Header />
           <Toaster position="top-center" />
-          <main className="pt-12">
+          <main className="pt-14 sm:pt-16"> 
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />

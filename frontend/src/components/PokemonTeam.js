@@ -7,6 +7,7 @@ import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import Input from './common/Input';
 import Header from './Header';
+import { toast } from 'react-hot-toast';
 
 const MAX_TEAM_SIZE = 6;
 
@@ -87,6 +88,7 @@ function PokemonTeam() {
   // rimuovo un pokémon dalla squadra
   const handleRemove = async (pokemonId) => {
     await apiFetch(`/api/team/${pokemonId}`, { method: 'DELETE' });
+    toast.success('Pokémon rimosso dalla squadra!');
     setTeam(team.filter(p => p.id !== pokemonId));
   };
 
@@ -100,13 +102,9 @@ function PokemonTeam() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name: pokemonName })
     });
+    toast.success('Pokémon aggiunto alla squadra!');
     setShowAddModal(false);
-    // aggiorno la squadra dopo l'aggiunta
-    // richiamo fetchTeam tramite un nuovo useEffect su showAddModal
-    setTimeout(() => {
-      // richiamo fetchTeam dopo la chiusura della modale
-      window.location.reload();
-    }, 400);
+    setTimeout(() => window.location.reload(), 400);
   };
 
   return (
@@ -153,20 +151,24 @@ function PokemonTeam() {
             background: '#fff', borderRadius: 16, padding: 24, minWidth: 320, maxHeight: 500, overflowY: 'auto'
           }}>
             <h3 style={{ color: '#3b4cca', marginBottom: 16 }}>scegli un pokémon</h3>
-            <Input
-              type="text"
-              placeholder="cerca pokémon"
-              value={search}
-              onChange={e => setSearch(e.target.value.toLowerCase())}
-              style={{
-                width: '100%',
-                padding: 8,
-                marginBottom: 16,
-                borderRadius: 8,
-                border: '1px solid #3b4cca',
-                fontSize: 16
-              }}
-            />
+            <div>
+              <label htmlFor="search-pokemon" className="sr-only">Cerca Pokémon</label>
+              <Input
+                id="search-pokemon"
+                type="text"
+                placeholder="cerca pokémon"
+                value={search}
+                onChange={e => setSearch(e.target.value.toLowerCase())}
+                style={{
+                  width: '100%',
+                  padding: 8,
+                  marginBottom: 16,
+                  borderRadius: 8,
+                  border: '1px solid #3b4cca',
+                  fontSize: 16
+                }}
+              />
+            </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, maxHeight: 350, overflowY: 'auto' }}>
               {filteredPokemon.length === 0 && <div style={{ color: '#e74c3c' }}>nessun pokémon trovato</div>}
               {filteredPokemon.map(p => (

@@ -6,9 +6,9 @@ import Loader from './common/Loader';
 function PokemonCard({ pokemon, onRemove, loading, onClick }) {
   return (
     <div
-      className={`flex flex-col items-center bg-white/80 rounded-xl p-4 shadow-xl border-4 border-transparent hover:scale-105 transition-transform duration-200 cursor-pointer ${typeColorClass(pokemon.type)}`}
+      className={`flex flex-col items-center bg-white/90 rounded-xl p-4 shadow-xl border-4 border-transparent hover:scale-105 transition-transform duration-200 cursor-pointer ${typeColorClass(pokemon.type)}`}
       onClick={onClick}
-      style={{ position: 'relative' }}
+      style={{ position: 'relative', minWidth: 140, minHeight: 180 }}
     >
       {/* icona di rimozione, visibile solo se onRemove ha risolto */}
       {onRemove && (
@@ -41,9 +41,10 @@ function PokemonCard({ pokemon, onRemove, loading, onClick }) {
             src={pokemon.sprite}
             alt={pokemon.name}
             className="w-20 h-20 drop-shadow-lg"
+            loading="lazy"
           />
           <span className="mt-2 font-semibold text-lg text-gray-800">{pokemon.name}</span>
-          <span className={`mt-1 px-2 py-1 rounded-full text-xs font-bold uppercase`}>
+          <span className={`mt-1 px-2 py-1 rounded-full text-xs font-bold uppercase ${typeColorClass(pokemon.type)}`}>
             {pokemon.types}
           </span>
         </>
