@@ -158,13 +158,16 @@ function PokemonList() {
       <main className="pt-12">
         <header className="App-header">
           <div className="flex items-center justify-center my-8">
+            {/* label solo per screen reader */}
+            <label htmlFor="search-pokemon-list" className="sr-only">Cerca Pokémon</label>
             <Input
+              id="search-pokemon-list"
               type="text"
               placeholder="Cerca Pokémon..."
               value={search}
               onChange={e => {
-                setSearch(e.target.value);         
-                debouncedSetSearch(e.target.value); 
+                setSearch(e.target.value);
+                debouncedSetSearch(e.target.value);
               }}
               name="search"
             />

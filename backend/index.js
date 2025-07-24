@@ -1,20 +1,23 @@
+// carico le variabili dal file .env
+require('dotenv').config(); 
+
 const http = require('http');
 const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
 
 // definisco le chiavi per la firma dei token jwt e dei refresh token
-const SECRET = 'supersecret';
-const REFRESH_SECRET = 'refreshsupersecret';
+const SECRET = process.env.JWT_SECRET || 'supersecret';
+const REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || 'refreshsupersecret';
 
 // configurazione del pool di connessioni per PostgreSQL
 // lasciato così è rischioso: 
 // inserire credenziali d'accesso come parte del codice può causare accessi non autorizzati.
 const pool = new Pool({
-  user: 'ales',        
-  host: 'localhost',
-  database: 'pokemonweb',   
-  password: 'supersecretpassword',  
-  port: 5432,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
 });
 
 // funzione asincrona per leggere e parsare la richiesta http

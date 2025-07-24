@@ -83,7 +83,7 @@ function PokemonTeam() {
   // filtro i pokemon in base alla ricerca
   const filteredPokemon = allPokemon
     .filter(p => p.name.includes(search))
-    .slice(0, 60); // limito a 60 risultati per performance
+    .slice(0, 60); // limito a 60 risultati per una questione di performance
 
   // rimuovo un pokémon dalla squadra
   const handleRemove = async (pokemonId) => {

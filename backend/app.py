@@ -11,6 +11,7 @@ import logging
 from werkzeug.exceptions import HTTPException
 import traceback
 from datetime import timedelta
+# redis serve come storage per il rate limiting
 import redis
 
 from backend.models import db
@@ -21,7 +22,8 @@ from backend.routes.admin import admin_bp
 from backend.routes.team import team_bp  
 from backend.routes.error_handlers import register_error_handlers
 
-load_dotenv()
+# carico le variabili d'ambiente da .env
+load_dotenv()  
 
 app = Flask(__name__)
 # fLASK-CORS aggiunge automaticamente gli header CORS
@@ -29,7 +31,7 @@ CORS(app, supports_credentials=True, origins=["http://localhost:3000"])
 
 # configurazione da .env
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'super-secret-key')
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # configuro Flask-Mail

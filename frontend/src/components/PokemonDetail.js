@@ -6,7 +6,7 @@ import { typeColorClass } from '../utils/typeColorClass';
 import Loader from './common/Loader';
 import Input from './common/Input';
 import Header from './Header';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 // creo il componente che mostra i dettagli di un pokémon
 function PokemonDetail({ name }) {
@@ -123,7 +123,7 @@ function PokemonDetail({ name }) {
             {addSuccess}
           </div>
         )}
-        <a href="/pokemon" style={{ color: '#61dafb', fontWeight: 600 }}>Torna alla lista</a>
+        <Link to="/pokemon" style={{ color: '#61dafb', fontWeight: 600 }}>Torna alla lista</Link>
       </main>
     </div>
   );

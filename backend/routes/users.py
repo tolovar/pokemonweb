@@ -4,8 +4,14 @@ from backend.models import db
 from flask_jwt_extended import jwt_required
 from werkzeug.security import generate_password_hash
 import logging
+from marshmallow import Schema, fields, validate
 
 users_bp = Blueprint('users', __name__, url_prefix='/api/users')
+
+class UserRegisterSchema(Schema):
+    username = fields.Str(required=True, validate=validate.Length(min=3, max=32))
+    email = fields.Email(required=True)
+    password = fields.Str(required=True, validate=validate.Length(min=6))
 
 @users_bp.route('/', methods=['GET'])
 @jwt_required()
