@@ -49,7 +49,7 @@ mail = Mail(app)
 limiter = Limiter(
     get_remote_address,
     app=app,
-    storage_uri="redis://localhost:6379"  # Assicurati di avere Redis attivo
+    storage_uri="redis://localhost:6379"  # redis deve essere attivo
 )
 migrate = Migrate(app, db)
 
