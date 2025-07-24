@@ -1,4 +1,4 @@
 from flask_sqlalchemy import SQLAlchemy
-from .team import TeamPokemon
+from .pokemon_team import PokemonTeam
 
 db = SQLAlchemy()
